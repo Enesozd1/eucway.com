@@ -141,13 +141,15 @@
     .cartitems-promobox button{
         width: 120px;
         margin-left: -125px;
+        
     }
     
 
 }
 @media(max-width:1024px){
+   
     .cartitems-promobox button{
-        right: 50px;
+        margin-left: 50px;
     }
 }
 
