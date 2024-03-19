@@ -147,7 +147,7 @@
 }
 @media(max-width:1024px){
     .cartitems-promobox button{
-        margin-left: -95px;
+        right: 50px;
     }
 }
 
