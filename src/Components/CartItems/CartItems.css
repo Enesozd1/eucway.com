@@ -146,13 +146,7 @@
     
 
 }
-@media(max-width:1024px){
-    .cartitems-promobox button{
-        margin-left: 85px;
-        
-    }
-    
-}
+
 
 @media(max-width:500px){
     .cartitems-format-main{
@@ -162,6 +156,9 @@
     }
     .cartitems-format{
         display: grid;
+    }
+    .cartitems-promobox{
+        display: inline-flex;
     }
     
 }
