@@ -147,7 +147,7 @@
 
 }
 
-@media(max-width:1024px){
+@media(max-width:800px){
     .cartitems-promobox{
         display: inline-flex;
         justify-content: space-between;
@@ -155,6 +155,7 @@
     }
 
 }
+
 @media(max-width:500px){
     .cartitems-format-main{
         display: none;
