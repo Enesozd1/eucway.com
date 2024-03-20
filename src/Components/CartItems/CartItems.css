@@ -147,7 +147,7 @@
 
 }
 
-@media(max-width:800px){
+@media(max-width:1024px){
     .cartitems-promobox{
         display: inline-flex;
         justify-content: space-between;
