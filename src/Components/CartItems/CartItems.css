@@ -161,6 +161,6 @@
         display: grid;
     }
     .cartitems-promobox input{
-        width: 70%;
+        width: 100%;
     }
 }
