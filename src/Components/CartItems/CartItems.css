@@ -156,6 +156,15 @@
 
 }
 
+@media(max-width:800px){
+    .cartitems-promobox{
+        display: inline-flex;
+        justify-content: space-between;
+        gap: 120px;
+    }
+
+}
+
 @media(max-width:500px){
     .cartitems-format-main{
         display: none;
