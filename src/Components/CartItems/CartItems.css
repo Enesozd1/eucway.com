@@ -160,7 +160,7 @@
     .cartitems-promobox{
         display: inline-flex;
         justify-content: space-between;
-        gap: 120px;
+        gap: 40px;
     }
 
 }
