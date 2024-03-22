@@ -98,6 +98,7 @@
 @media(max-width:800px){
     .loginsignup-container{
         padding: 20px 30px;
+        
     }
     .loginsignup-container h1{
         font-size: 24px;
@@ -112,5 +113,14 @@
     .loginsignup-container button{
         height: 50px;
         font-size: 16px;
+    }
+}
+@media(max-width:500px){
+    .loginsignup-container{
+       width: 70%;
+        
+    }
+    .loginsignup-fields input{
+        font-size: 14px;
     }
 }
