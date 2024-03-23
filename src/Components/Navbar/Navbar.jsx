@@ -27,7 +27,7 @@ const Navbar =() => {
             <ul ref={menuRef} className="nav-menu">
                 <li onClick={() => {setMenu("shop")}}><Link style={{ textDecoration: 'none'}} to='/'>Shop</Link>{menu==="shop"? <hr />:<></>}</li>
                 <li onClick={() => {setMenu("bumper")}}><Link style={{ textDecoration: 'none'}} to='/bumper'>Bumper sets</Link>{menu==="bumper"? <hr />:<></>}</li>
-                <li onClick={() => {setMenu("pads")}}><Link style={{ textDecoration: 'none'}} to='/pads'>LinkPads</Link>{menu==="pads"? <hr />:<></>}</li>
+                <li onClick={() => {setMenu("pads")}}><Link style={{ textDecoration: 'none'}} to='/pads'>Pads</Link>{menu==="pads"? <hr />:<></>}</li>
             </ul>
             <div className="nav-login-cart">
                 <Link to='/login'><button>Login</button></Link>
