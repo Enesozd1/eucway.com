@@ -1,7 +1,7 @@
-import React from "react";
+//import React from "react";
 import './Popular.css';
-import data_product from '../Assets/data';
-import Item from "../item/Item";
+//import data_product from '../Assets/data';
+//import Item from "../item/Item";
 
 
 const Popular =() => {
