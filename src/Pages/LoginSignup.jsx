@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './CSS/LoginSignup.css'
-//import {arrows_circle_check} from 'react-icons-kit/linea/arrows_circle_check'
+
 
 
 const LoginSignup = () => {
@@ -13,10 +13,6 @@ const LoginSignup = () => {
     });
 
 
-    //const [lowerValidate, setLowerValidate] = useState(false);
-    //const [UpperValidate, setUpperValidate] = useState(false);
-    //const [numberValidate, setNumberValidate] = useState(false);
-    //const [characterValidate, setCharacterValidate] = useState(false);
     const [message, setMessage] = useState('Your password must have: Minimum 8 digits, 1 upper and lowercase Letter')
     const [inputfilled, setInputFilled] = useState(false);
     const changeHandler = (e) => {
