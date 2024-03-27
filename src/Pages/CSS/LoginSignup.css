@@ -6,9 +6,26 @@
     display: flex;
 
 }
+.tracker-box{
+    background-color: #386489;
+    
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 0.09em;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 5px;  
+}
+
+.tracker-box .validated{
+    color: red;
+}
+.tracker-box .not-validated{
+    color: red;
+}
 .loginsignup-container{
     width: 580px;
-    height: 600px;
+    height: 640px;
     background: white;
     margin: auto;
     padding: 40px 60px;
@@ -123,5 +140,12 @@
     }
     .loginsignup-fields input{
         font-size: 14px;
+    }
+    .tracker-box{
+        height: 5%;
+        font-size: 10px;
+    }
+    .loginsignup-container button{
+        margin-top: 10px;
     }
 }
