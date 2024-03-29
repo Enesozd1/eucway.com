@@ -1,7 +1,20 @@
 import React, { useState } from "react";
 import './CSS/LoginSignup.css'
+//import { sendMail } from "../Service/SendMail";
 
-
+//function generate(n) {
+//    var add = 1, max = 12 - add;   // 12 is the min safe number Math.random() can generate without it starting to pad the end with zeros.   
+    
+//    if ( n > max ) {
+//            return generate(max) + generate(n - max);
+//    }
+    
+//    max        = Math.pow(10, n+add);
+//    var min    = max/10; // Math.pow(10, n) basically
+//    var number = Math.floor( Math.random() * (max - min + 1) ) + min;
+    
+//    return ("" + number).substring(add); 
+//}
 
 const LoginSignup = () => {
 
@@ -20,9 +33,13 @@ const LoginSignup = () => {
         
        
     }
+    //const [emailSent, setEmailSent] = useState(false);
+    //const [emailVerified, setEmailVerified] = useState(false);
+    //const verificationInput = '';
+    const [verificationCount, setVerificationCount] = useState(1);
 
     const login = async () => {
-        console.log("Login Function Executed", formData);
+        //console.log("Login Function Executed", formData);
         let responseData;
         await fetch('https://eucway-apis.onrender.com/login',{
             method:'POST',
@@ -42,32 +59,58 @@ const LoginSignup = () => {
     }
 
     const signup = async () => {
-
-        console.log("Signup Function Executed",formData);
-
         
-
+        setVerificationCount(verificationCount + 1);
+        if(verificationCount < 5){
+            //const verificationCode = generate(6); 
+            
+            
+            //let response = await sendMail(verificationCode);
+            //setEmailSent(true);
+        }
+        
+        
         
         function allCases(string) {
             const
                 upper = /[A-Z]/.test(string),
                 lower = /[a-z]/.test(string),
                 number = /[0-9]/.test(string);
+                
         
             return upper && lower && number;
         }
+
+        function EmailVer(string) {
+            const
+                email = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(string);
+                
+                
+        
+            return email;
+        }
+
+        
+
 
         if(formData.password.trim().length < 2 ||formData.email.trim().length < 2 || formData.username.trim().length < 2){
             setMessage("Fill Out All input fields")
             setInputFilled(false)
         }
-        else if(allCases(formData.password)=== true && formData.email.trim().length > 2 && formData.username.trim().length > 2){
-            setInputFilled(true)
+        else if(allCases(formData.password)=== true && formData.email.trim().length > 2 && formData.username.trim().length > 2){  //problem rises when @ is used
+
+            if(EmailVer(formData.email)===true){
+                setInputFilled(true)
+            }
+            
+            else if(EmailVer(formData.email)===false){
+                setMessage("Enter a valid email address")
+            }
             
         }
-
-        if(allCases(formData.password)=== true && inputfilled){
-            
+        
+        
+        if(allCases(formData.password)=== true && inputfilled ){ //&& emailVerified
             let responseData;
             
             await fetch('https://eucway-apis.onrender.com/signup',{
@@ -86,8 +129,14 @@ const LoginSignup = () => {
                 alert(responseData.errors);
             }
         }
-        else if(allCases(formData.password)=== false && inputfilled === false){
-            setMessage("Requirements: Minimum 8 letters, At least 1 upper and lowercase letter")
+        else if(allCases(formData.password)=== false && inputfilled === false){ // emailVerified === false
+            if(EmailVer(formData.email)===false){
+                setMessage("Enter a valid email address")
+            }
+            else{
+                setMessage("Password must have at least 8 letters, 1 upper and lowercase letter")
+            }
+            
             
         }
 
@@ -103,7 +152,8 @@ const LoginSignup = () => {
                 <div className="loginsignup-fields">
                     {state==="Sign Up"? <input name="username" value={formData.username} onChange={changeHandler} type="text" placeholder="Your Name" />:<></>}
                     <input name="email" value={formData.email} onChange={changeHandler} type="email" placeholder="Email Adress" />
-                    <input name="password" value={formData.password} onChange={changeHandler}  type="password" placeholder="Your Password" />
+                    <input name="password" value={formData.password} onChange={changeHandler}  type="password" placeholder="Your Password" /> 
+                    {/*{emailSent? <input name="verifyEmail" value={verificationInput}  type="text" placeholder="Verification sent to your Email"/>:<></>} */}
                 </div>
                 {state==="Sign Up"? <main className="tracker-box"><p className={message==="Requirements: Minimum 8 letters, At least 1 upper and lowercase letter"?'validated':'non-validated'}>{message}</p></main>:<></>}
                 
