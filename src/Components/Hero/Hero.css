@@ -1,9 +1,10 @@
 .hero{
-    height: 100vh;
+    height: 60vh;
     background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
     display: flex;
 
 }
+
 .hero-left{
     flex: 1;
     display: flex;
@@ -13,10 +14,11 @@
     padding-left: 180px;
     line-height: 1.1;
 }
-.hero-left h2{
+.hero-left h1{
     color: #090909;
-    font-size: 26px;
+    font-size: 28px;
     font-weight: 600;
+    margin-bottom: 20px;
 }
 .hero-left p{
     color: #171717;
@@ -44,6 +46,10 @@
     color: white;
     font-size: 22px;
     font-weight: 500;
+}
+.hero-lastest-btn img{
+    margin-top: 10px;
+    width: 15%;
 }
 .hero-right{
     flex: 1;
