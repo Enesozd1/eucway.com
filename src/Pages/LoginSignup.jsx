@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import './CSS/LoginSignup.css'
+
 //import { sendMail } from "../Service/SendMail";
 
 //function generate(n) {
@@ -59,6 +60,27 @@ const LoginSignup = () => {
     }
 
     const signup = async () => {
+
+        //e.preventDefault();
+
+
+        try {
+            const response = await fetch('https://eucway-apis.onrender.com/send', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ to: formData.email }),
+            });
+      
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+      
+            alert('Verification email sent!');
+          } catch (error) {
+            alert(error);
+          }
         
         setVerificationCount(verificationCount + 1);
         if(verificationCount < 5){
