@@ -64,8 +64,6 @@ const LoginSignup = () => {
 
         //e.preventDefault();
 
-
-        
         
         setVerificationCount(verificationCount + 1);
         if(verificationCount < 5){
