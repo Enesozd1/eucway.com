@@ -47,8 +47,7 @@ const LoginSignup = () => {
             headers:{
                 Accept:'application/form-data',
                 'Content-Type':'application/json',
-                'Access-Control-Allow-Origin': 'https://eucway.com', // Allow requests from any origin
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+                
             },
             body: JSON.stringify(formData),
         }).then((response)=> response.json()).then((data) =>responseData=data)
@@ -126,8 +125,7 @@ const LoginSignup = () => {
                 headers:{
                     Accept:'application/form-data',
                     'Content-Type':'application/json',
-                    'Access-Control-Allow-Origin': 'https://eucway.com', // Allow requests from any origin
-                    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+                    
                 },
                 body: JSON.stringify(formData),
             }).then((response)=> response.json()).then((data) =>responseData=data)
