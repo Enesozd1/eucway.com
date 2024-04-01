@@ -42,7 +42,7 @@ const LoginSignup = () => {
     const login = async () => {
         //console.log("Login Function Executed", formData);
         let responseData;
-        await fetch('login',{
+        await fetch('https://eucway-apis.onrender.com/login',{
             method:'POST',
             headers:{
                 Accept:'application/form-data',
@@ -120,7 +120,7 @@ const LoginSignup = () => {
         if(allCases(formData.password)=== true && inputfilled ){ //&& emailVerified
             let responseData;
             
-            await fetch('signup',{
+            await fetch('https://eucway-apis.onrender.com/signup',{
                 method:'POST',
                 headers:{
                     Accept:'application/form-data',
