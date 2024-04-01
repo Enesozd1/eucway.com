@@ -29,6 +29,8 @@ const ShopContextProvider = (props) => {
                     Accept:'application/form-data',
                     'auth-token':`${localStorage.getItem('auth-token')}`,
                     'Content-Type':'application/json',
+                    'Access-Control-Allow-Origin': 'https://eucway.com', // Allow requests from any origin
+                    'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
                 },
                 body:"",
             }).then((response) => response.json())
