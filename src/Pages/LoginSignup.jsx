@@ -62,8 +62,23 @@ const LoginSignup = () => {
 
     const signup = async () => {
 
-        //e.preventDefault();
-       
+        try {
+            const response = await fetch('https://eucway-apis.onrender.com/log-value', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ to: formData.email, subject: "Email verify"}),
+            });
+      
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+      
+            alert('Verification email sent!');
+          } catch (error) {
+            alert(error);
+          }
 
 
         
