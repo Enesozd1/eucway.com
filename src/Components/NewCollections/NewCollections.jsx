@@ -7,7 +7,8 @@ const NewCollections = () => {
     const [new_collection, setNew_Collection] = useState([]);
 
     useEffect(()=>{
-        fetch('https://eucway-apis.onrender.com/newcollections')
+        const newcollectionUrl = `${process.env.REACT_APP_API_LINK}/newcollections`;
+        fetch(newcollectionUrl)
         .then((response)=>response.json())
         .then((data)=>setNew_Collection(data));
     },[])

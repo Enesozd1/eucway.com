@@ -59,6 +59,19 @@
     font-weight: 500;
     cursor: pointer;
 }
+.verifyButton button{
+   width: 15%;
+   height: 50%;
+   color: green;
+    background-color: white; 
+}
+.verifyButton{
+    display: inline-flex;
+}
+.verifyButton input{
+    width: 80%;   
+}
+
 .loginsignup-login{
     margin-top: 20px;
     color: #5c5c5c;
@@ -79,7 +92,7 @@
     font-size: 18px;
     font-weight: 500;
 }
-@media(max-width:1280px){
+@media(max-width:1280px){     
     .loginsignup{
         padding-top: 50px;
 

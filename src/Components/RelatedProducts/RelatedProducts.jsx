@@ -10,7 +10,8 @@ const RelatedProducts = () => {
     const [data_product , setAll_Product] = useState([]);
 
     useEffect(() =>{
-        fetch('https://eucway-apis.onrender.com/allproducts')
+        const allproducts = `${process.env.REACT_APP_API_LINK}/allproducts`;
+        fetch(allproducts)
         .then((response)=>response.json())
         .then((data)=>setAll_Product(data))
     },[])

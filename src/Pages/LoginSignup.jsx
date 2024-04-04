@@ -1,48 +1,58 @@
 import React, { useState } from "react";
 import './CSS/LoginSignup.css'
 
-//import { sendMail } from "../Service/SendMail";
-
-//function generate(n) {
-//    var add = 1, max = 12 - add;   // 12 is the min safe number Math.random() can generate without it starting to pad the end with zeros.   
+function generate(n) {
+    var add = 1, max = 12 - add;   // 12 is the min safe number Math.random() can generate without it starting to pad the end with zeros.   
     
-//    if ( n > max ) {
-//            return generate(max) + generate(n - max);
-//    }
+    if ( n > max ) {
+            return generate(max) + generate(n - max);
+    }
     
-//    max        = Math.pow(10, n+add);
-//    var min    = max/10; // Math.pow(10, n) basically
-//    var number = Math.floor( Math.random() * (max - min + 1) ) + min;
+    max        = Math.pow(10, n+add);
+    var min    = max/10; // Math.pow(10, n) basically
+    var number = Math.floor( Math.random() * (max - min + 1) ) + min;
     
-//    return ("" + number).substring(add); 
-//}
+    return ("" + number).substring(add); 
+}
+const verificationarray = [];
 
 const LoginSignup = () => {
+    
 
     const [state, setState] = useState("Login");
     const [formData, setFormData] = useState({
         username:"",
         password:"",
-        email:""
+        email:"",
+        verification:"",
+        
     });
-
+    
 
     const [message, setMessage] = useState('Your password must have: Minimum 8 digits, 1 upper and lowercase Letter')
     const [inputfilled, setInputFilled] = useState(false);
     const changeHandler = (e) => {
         setFormData({...formData,[e.target.name]:e.target.value})
         
-       
+        
     }
-    //const [emailSent, setEmailSent] = useState(false);
+    //const verifychangeHandler = (e) => {
+    //    const verify = e.target.verify
+    //    setVerifyHand(verify)
+    //}
+    
+    const [emailSent, setEmailSent] = useState(false);
     //const [emailVerified, setEmailVerified] = useState(false);
-    //const verificationInput = '';
+    
+   
     const [verificationCount, setVerificationCount] = useState(1);
-
+    const [verificationCode, setVerificationCode] = useState('');
+    
     const login = async () => {
         //console.log("Login Function Executed", formData);
+        const loginUrl = `${process.env.REACT_APP_API_LINK}/login`;
         let responseData;
-        await fetch('https://eucway-apis.onrender.com/login',{
+        await fetch(loginUrl,{
             method:'POST',
             headers:{
                 Accept:'application/form-data',
@@ -59,40 +69,70 @@ const LoginSignup = () => {
             alert(responseData.errors);
         }
     }
-
-    const signup = async () => {
-
-        try {
-            const response = await fetch('https://eucway-apis.onrender.com/log-value', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({ to: formData.email, subject: "Email verify"}),
-            });
-      
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-      
-            alert('Verification email sent!');
-          } catch (error) {
-            alert(error);
-          }
-
-
-        
-        setVerificationCount(verificationCount + 1);
-        if(verificationCount < 5){
-            //const verificationCode = generate(6); 
-            
-            
-            //let response = await sendMail(verificationCode);
-            //setEmailSent(true);
+    const verificationProcess = () =>{
+              
+        if(verificationarray.includes(formData.verification)){
+           
+            //setEmailVerified(true)
+            fetching()
+        }
+        else if((verificationarray.includes(formData.verification))===false){
+           setMessage("Email not verified")
+           alert("Your Email is not verified")
         }
         
+    }
+    const fetching = async() =>{
         
+            let responseData;
+            const loginUrl = `${process.env.REACT_APP_API_LINK}/signup`;
+            await fetch(loginUrl,{
+                method:'POST',
+                headers:{
+                    Accept:'application/form-data',
+                    'Content-Type':'application/json',
+
+                },
+                body: JSON.stringify(formData),
+            }).then((response)=> response.json()).then((data) =>responseData=data)
+            if(responseData.success){
+                localStorage.setItem('auth-token',responseData.token);
+                window.location.replace("/");
+            }
+            else{
+                alert(responseData.errors);
+            } 
         
+        }
+
+    const signup = async () => {
+        let verify = true;
+        let responseData;
+        const loginUrl = `${process.env.REACT_APP_API_LINK}/signupCheck`;
+            await fetch(loginUrl,{
+                method:'POST',
+                headers:{
+                    Accept:'application/form-data',
+                    'Content-Type':'application/json',
+
+                },
+                body: JSON.stringify(formData),
+            }).then((response)=> response.json()).then((data) =>responseData=data)
+            if(responseData.success === false){
+                alert(responseData.errors);
+                verify=false;
+            }
+            else if(responseData.success){
+                verify = true
+            } 
+            if(verify){
+            
+
+        //console.log(verificationCode);
+        setVerificationCode(generate(6));
+        verificationarray.push(verificationCode);
+        //console.log(verificationarray)
+                 
         function allCases(string) {
             const
                 upper = /[A-Z]/.test(string),
@@ -106,14 +146,8 @@ const LoginSignup = () => {
         function EmailVer(string) {
             const
                 email = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/.test(string);
-                
-                
-        
             return email;
         }
-
-        
-
 
         if(formData.password.trim().length < 2 ||formData.email.trim().length < 2 || formData.username.trim().length < 2){
             setMessage("Fill Out All input fields")
@@ -130,29 +164,42 @@ const LoginSignup = () => {
             }
             
         }
-        
-        
-        if(allCases(formData.password)=== true && inputfilled ){ //&& emailVerified
-            let responseData;
-            
-            await fetch('https://eucway-apis.onrender.com/signup',{
-                method:'POST',
-                headers:{
-                    Accept:'application/form-data',
-                    'Content-Type':'application/json',
 
-                },
-                body: JSON.stringify(formData),
-            }).then((response)=> response.json()).then((data) =>responseData=data)
-            if(responseData.success){
-                localStorage.setItem('auth-token',responseData.token);
-                window.location.replace("/");
-            }
-            else{
-                alert(responseData.errors);
-            }
-        }
-        else if(allCases(formData.password)=== false && inputfilled === false){ // emailVerified === false
+        if(allCases(formData.password)=== true && inputfilled){
+            //let variable = generate(6)
+        
+            if(verificationCount < 5){
+                
+                
+
+                setVerificationCount(verificationCount + 1);
+                //console.log(verificationCode)
+                const loginUrl = `${process.env.REACT_APP_API_LINK}/log-value`;
+                try {
+                    const response = await fetch(loginUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ to: formData.email, subject: "Email Verification Code", text:verificationCode}),
+                    });
+            
+                    if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+            
+                    alert('Verification email sent!');
+                    setEmailSent(true);
+                } catch (error) {
+                    alert(error);
+                } 
+                
+            } 
+        } 
+        
+
+        
+        if(allCases(formData.password)=== false && inputfilled === false){ 
             if(EmailVer(formData.email)===false){
                 setMessage("Enter a valid email address")
             }
@@ -165,6 +212,7 @@ const LoginSignup = () => {
 
         
     }
+}
 
     
 
@@ -176,7 +224,8 @@ const LoginSignup = () => {
                     {state==="Sign Up"? <input name="username" value={formData.username} onChange={changeHandler} type="text" placeholder="Your Name" />:<></>}
                     <input name="email" value={formData.email} onChange={changeHandler} type="email" placeholder="Email Adress" />
                     <input name="password" value={formData.password} onChange={changeHandler}  type="password" placeholder="Your Password" /> 
-                    {/*{emailSent? <input name="verifyEmail" value={verificationInput}  type="text" placeholder="Verification sent to your Email"/>:<></>} */}
+                    {emailSent? <div className="verifyButton"><input name="verification" value={formData.verification} onChange={changeHandler}  type="text" placeholder="Verification sent to your Email"/><button className="verifybut" onClick={()=>{verificationProcess()}}>Verify</button></div>:<></>} 
+                    
                 </div>
                 {state==="Sign Up"? <main className="tracker-box"><p className={message==="Requirements: Minimum 8 letters, At least 1 upper and lowercase letter"?'validated':'non-validated'}>{message}</p></main>:<></>}
                 
@@ -196,5 +245,3 @@ const LoginSignup = () => {
 
 export default LoginSignup;
 
-//http://localhost:4000/login
-//http://localhost:4000/signup

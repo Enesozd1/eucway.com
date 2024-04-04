@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-//import all_product from '../Components/Assets/all_product';
+
 
 export const ShopContext = createContext(null);
 
@@ -16,14 +16,16 @@ const ShopContextProvider = (props) => {
     const [all_product, setAll_Product] = useState([]);
 
     const [cartItems, setCartItems] = useState(getDefaultCart());
-
+    
     useEffect(() =>{
-        fetch('https://eucway-apis.onrender.com/allproducts')
+        const allproducUrl = `${process.env.REACT_APP_API_LINK}/allproducts`;
+        const getcartUrl = `${process.env.REACT_APP_API_LINK}/getcart`;
+        fetch(allproducUrl)
         .then((response)=>response.json())
         .then((data)=>setAll_Product(data))
 
         if(localStorage.getItem('auth-token')){
-            fetch('https://eucway-apis.onrender.com/getcart', {
+            fetch(getcartUrl, {
                 method:'POST',
                 headers:{
                     Accept:'application/form-data',
@@ -40,8 +42,9 @@ const ShopContextProvider = (props) => {
    
     const addToCart = (itemId) => {
         setCartItems((prev) => ({...prev,[itemId]:prev[itemId] +1}));
+        const addtocartUrl = `${process.env.REACT_APP_API_LINK}/addtocart`;
         if(localStorage.getItem('auth-token')){
-            fetch('https://eucway-apis.onrender.com/addtocart',{
+            fetch(addtocartUrl,{
                 method:'POST',
                 headers:{
                     Accept:'application/form-data',
@@ -58,9 +61,10 @@ const ShopContextProvider = (props) => {
 
     const RemoveFromCart = (itemId) => {
         setCartItems((prev) => ({...prev,[itemId]:prev[itemId] -1}));
+        const removecartUrl = `${process.env.REACT_APP_API_LINK}/removefromcart`;
         if(localStorage.getItem('auth-token')){
             if(localStorage.getItem('auth-token')){
-                fetch('https://eucway-apis.onrender.com/removefromcart',{
+                fetch(removecartUrl,{
                     method:'POST',
                     headers:{
                         Accept:'application/form-data',
