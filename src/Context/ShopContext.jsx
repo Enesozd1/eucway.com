@@ -21,7 +21,7 @@ const ShopContextProvider = (props) => {
         
         const allproducUrl = `${process.env.REACT_APP_API_LINK}/allproducts`;
         const getcartUrl = `${process.env.REACT_APP_API_LINK}/getcart`;
-        console.log(getcartUrl)
+        
         fetch(allproducUrl)
         .then((response)=>response.json())
         .then((data)=>setAll_Product(data))

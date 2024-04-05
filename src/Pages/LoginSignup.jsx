@@ -195,6 +195,9 @@ const LoginSignup = () => {
                 } 
                 
             } 
+            else if(verificationCount <! 5){
+                alert("A verification has already been sent multiple times")
+            }
         } 
         
 
