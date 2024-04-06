@@ -4,6 +4,10 @@
     display: flex;
 
 }
+.hero-lastest-btn{
+    display: none;
+}
+
 
 .hero-left{
     flex: 1;
@@ -33,24 +37,8 @@
 .hero-hand-icon img{
     width: 105px;
 }
-.hero-lastest-btn{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    width: 310px;
-    height: 70px;
-    border-radius: 75px;
-    margin-top: 30px;
-    background: #ff4141;
-    color: white;
-    font-size: 22px;
-    font-weight: 500;
-}
-.hero-lastest-btn img{
-    margin-top: 10px;
-    width: 15%;
-}
+
+
 .hero-right{
     flex: 1;
     display: flex;
@@ -135,6 +123,7 @@
     }
 }
 @media(max-width:500px){
+
     .hero{
         flex-direction: column;
     }
@@ -152,12 +141,40 @@
     .hero-hand-icon img{
         width: 55px;
     }
-    .hero-latest-btn{
+
+    .hero-lastest-btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        width: 310px;
+        height: 70px;
+        border-radius: 75px;
+        margin-top: 50px;
+        margin-left: 50px;
+        background: #ff4141;
+        color: white;
+        font-size: 22px;
+        font-weight: 500;
+    }
+    
+    .conditionalRender{
+        margin-top: 50px;
+    }
+    .hero-lastest-btn img{
+        cursor: pointer;
+        rotate: -90deg;
+            transition: 0.5s;
+            
+                margin-top: 10px;
+                width: 15%;
+            
+    }
+    .hero-lastest-btn.open img{
+        transform: rotate(90deg);
+        margin-top: 10px;
+                width: 15%;
         
-        width: 200px;
-        height: 45px;
-        
-        font-size: 14px;
     }
     
 }

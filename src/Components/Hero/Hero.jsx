@@ -3,26 +3,37 @@ import './Hero.css'
 //import hand_icon from '../Assets/hand_icon.png'
 //import Arrow_icon from '../Assets/arrow.png'
 import Arrow_icon from '../Assets/arrowDown.png'
+import { useState } from "react";
+import NewCollections from "../NewCollections/NewCollections";
 const Hero = () => {
+    const [imageClicked, setImageClicked] = useState(false);
+    
+      // Function to handle button clicks
+      const onClickHandler = () => {
+       
+        setImageClicked((prevState) => !prevState); // Toggle the boolean value
+        
+      };
+
+     
+
+      
     return(
         <div className="hero">
             
-            <div className="hero-left">
-            
-                <div>
-                    <div className="hero-hand-icon">
-                        
-                        
-                    </div>
-                    
-                </div>
+           
 
             
-                <div className="hero-lastest-btn">
+                <div className={`hero-lastest-btn ${imageClicked ? 'open' : ''}`}>
                     <div>Latest Collections</div>
-                    <img src={Arrow_icon} alt="" />
+                    <img src={Arrow_icon} alt="" onClick={onClickHandler}/>
                 </div>
+                <div className="conditionalRender"> 
+                {imageClicked === true && <NewCollections />}
+                {/* Other components */}
                 </div>
+
+                
             
         </div>
     )
