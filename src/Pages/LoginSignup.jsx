@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import './CSS/LoginSignup.css'
+//import { useEffect } from "react";
+//import { useHistory } from 'react-router-dom';
+//import { useNavigate } from "react-router-dom";
+
 
 function generate(n) {
     var add = 1, max = 12 - add;   // 12 is the min safe number Math.random() can generate without it starting to pad the end with zeros.   
@@ -22,6 +26,7 @@ const verificationarray = [];
 
 const LoginSignup = () => {
     
+    //const navigate = useNavigate();
     const [elementDeleted, setElementDeleted] = useState(false)
     const [state, setState] = useState("Login");
     const [formData, setFormData] = useState({
@@ -46,6 +51,11 @@ const LoginSignup = () => {
     //}
     
     const [emailSent, setEmailSent] = useState(false);
+    //useEffect(() => {
+    //    if (emailSent) {
+    //        history.push('/verification');
+    //    }
+    //}, [emailSent, history]);
     //const [emailVerified, setEmailVerified] = useState(false);
     
    
@@ -115,6 +125,7 @@ const LoginSignup = () => {
         }
 
     const signup = async () => {
+        
         let verify = true;
         let responseData;
         const loginUrl = `${process.env.REACT_APP_API_LINK}/signupCheck`;
@@ -177,7 +188,7 @@ const LoginSignup = () => {
         if(allCases(formData.password)=== true && inputfilled){
             //let variable = generate(6)
         
-            if(verificationCount < 5){
+            if(verificationCount < 2){
                 setVerificationCount(verificationCount + 1);
                 //console.log(verificationCode)
                 const loginUrl = `${process.env.REACT_APP_API_LINK}/log-value`;
@@ -195,7 +206,9 @@ const LoginSignup = () => {
                     }
             
                     alert('Verification email sent!');
+
                     setEmailSent(true);
+                    //navigate('/verification');
                 } catch (error) {
                     alert(error);
                 } 

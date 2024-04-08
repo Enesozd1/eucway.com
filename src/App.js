@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './Components/Navbar/Navbar';
-import { BrowserRouter, Routes,Route } from 'react-router-dom';
+import { BrowserRouter, Routes,Route} from 'react-router-dom';
 import Shop from './Pages/Shop';
 import ShopCategory from './Pages/ShopCategory'
 import Product from './Pages/Product'
@@ -10,6 +10,7 @@ import Footer from './Components/Footer/Footer';
 import bumper_banner from './Components/Assets/banner_mens.png'
 import pads_banner from './Components/Assets/banner_women.png'
 import Payment from './Pages/Payment';
+import Verification from './Pages/Verification';
 
 function App() {
   
@@ -27,6 +28,7 @@ function App() {
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/login' element={<LoginSignup/>}/>
           <Route path='/payment' element={<Payment />} />
+          <Route path='/verification' element={<Verification />} />
 
         </Routes>
         <Footer />
