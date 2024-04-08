@@ -56,7 +56,12 @@ const CartItems = () => {
                             <h3>€{getTotalCartAmount()}</h3>
                         </div>
                     </div>
+                    
+                    {localStorage.getItem('auth-token') !== null ? (
                     <Link to='/payment'><button>Proceed To Checkout</button></Link>
+                    ) : (
+                    <button disabled>Proceed To Checkout</button>
+                    )}
                 </div>
                 <div className="cartitems-promocode">
                     <p>Enter your promocode, if you have one</p>

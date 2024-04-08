@@ -16,9 +16,13 @@ function generate(n) {
 }
 const verificationarray = [];
 
+
+
+
+
 const LoginSignup = () => {
     
-
+    const [elementDeleted, setElementDeleted] = useState(false)
     const [state, setState] = useState("Login");
     const [formData, setFormData] = useState({
         username:"",
@@ -28,7 +32,7 @@ const LoginSignup = () => {
         
     });
     
-
+    
     const [message, setMessage] = useState('Your password must have: Minimum 8 digits, 1 upper and lowercase Letter')
     const [inputfilled, setInputFilled] = useState(false);
     const changeHandler = (e) => {
@@ -70,6 +74,10 @@ const LoginSignup = () => {
         }
     }
     const verificationProcess = () =>{
+        if(elementDeleted===false){
+            verificationarray.shift()
+        }
+        setElementDeleted(true)
               
         if(verificationarray.includes(formData.verification)){
            
@@ -80,6 +88,7 @@ const LoginSignup = () => {
            setMessage("Email not verified")
            alert("Your Email is not verified")
         }
+        
         
     }
     const fetching = async() =>{
@@ -169,9 +178,6 @@ const LoginSignup = () => {
             //let variable = generate(6)
         
             if(verificationCount < 5){
-                
-                
-
                 setVerificationCount(verificationCount + 1);
                 //console.log(verificationCode)
                 const loginUrl = `${process.env.REACT_APP_API_LINK}/log-value`;
