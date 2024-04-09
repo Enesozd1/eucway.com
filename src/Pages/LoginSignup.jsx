@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './CSS/LoginSignup.css'
 //import { useEffect } from "react";
 //import { useHistory } from 'react-router-dom';
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 
 
 function generate(n) {
@@ -26,7 +26,7 @@ const verificationarray = [];
 
 const LoginSignup = () => {
     
-    const navigate = useNavigate();
+    //const navigate = useNavigate();
     const [elementDeleted, setElementDeleted] = useState(false)
     const [state, setState] = useState("Login");
     const [formData, setFormData] = useState({
