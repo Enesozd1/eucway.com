@@ -11,7 +11,7 @@ const Shop = () => {
             <Hero />
             <Popular />
             <Offers />
-            
+        {/*/if data biggger than 500 then hero*/}
             <NewsLetter />
         </div>
     )
