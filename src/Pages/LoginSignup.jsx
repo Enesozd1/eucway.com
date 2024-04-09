@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './CSS/LoginSignup.css'
 //import { useEffect } from "react";
 //import { useHistory } from 'react-router-dom';
-//import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 function generate(n) {
@@ -26,7 +26,7 @@ const verificationarray = [];
 
 const LoginSignup = () => {
     
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
     const [elementDeleted, setElementDeleted] = useState(false)
     const [state, setState] = useState("Login");
     const [formData, setFormData] = useState({
@@ -205,7 +205,7 @@ const LoginSignup = () => {
                     throw new Error(`HTTP error! status: ${response.status}`);
                     }
             
-                    alert('Verification email sent!');
+                    
 
                     setEmailSent(true);
                     //navigate('/verification');
@@ -239,14 +239,16 @@ const LoginSignup = () => {
     
 
     return(
+        
         <div className="loginsignup">
+            {emailSent===false?
             <div className="loginsignup-container">
                 <h1>{state}</h1>
                 <div className="loginsignup-fields">
                     {state==="Sign Up"? <input name="username" value={formData.username} onChange={changeHandler} type="text" placeholder="Your Name" />:<></>}
                     <input name="email" value={formData.email} onChange={changeHandler} type="email" placeholder="Email Adress" />
                     <input name="password" value={formData.password} onChange={changeHandler}  type="password" placeholder="Your Password" /> 
-                    {emailSent? <div className="verifyButton"><input name="verification" value={formData.verification} onChange={changeHandler}  type="text" placeholder="Verification sent to your Email"/><button className="verifybut" onClick={()=>{verificationProcess()}}>Verify</button></div>:<></>} 
+                    
                     
                 </div>
                 {state==="Sign Up"? <main className="tracker-box"><p className={message==="Requirements: Minimum 8 letters, At least 1 upper and lowercase letter"?'validated':'non-validated'}>{message}</p></main>:<></>}
@@ -261,6 +263,14 @@ const LoginSignup = () => {
                     <p>By Continuing, I agree to terms of use & privacy policy</p>
                 </div>
             </div>
+            : <div className="loginsignup-container">
+                <h1>Code sent to your email</h1>
+                <div className="loginsignup-fields">
+                <div className="verifyButton"><input name="verification" value={formData.verification} onChange={changeHandler}  type="text" placeholder="Verification sent to your Email"/><button className="verifybut" onClick={()=>{verificationProcess()}}>Verify</button></div> 
+                </div>
+                </div>
+
+            }
         </div>
     )
 }

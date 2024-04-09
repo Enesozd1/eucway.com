@@ -28,8 +28,7 @@ function App() {
           <Route path='/cart' element={<Cart/>}/>
           <Route path='/login' element={<LoginSignup/>}/>
           <Route path='/payment' element={<Payment />} />
-          <Route path='/verification' element={<Verification />} />
-
+          <Route path='/verification' element={<Verification/>}/>
         </Routes>
         <Footer />
 
