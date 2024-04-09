@@ -58,7 +58,9 @@ const Navbar =() => {
     return(
         <div className="navbar">
             <div className="nav-logo">
+                <Link to="/">
                 <img src={logo} alt="" />
+                </Link>
                 <p>EUCWAY</p>
             </ div>
             <img className='nav-dropdown' onClick={dropdown_toggle} src={nav_dropdown} alt="" />

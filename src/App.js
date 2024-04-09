@@ -12,6 +12,7 @@ import pads_banner from './Components/Assets/banner_women.png'
 import Payment from './Pages/Payment';
 import Verification from './Pages/Verification';
 
+
 function App() {
   
   return (

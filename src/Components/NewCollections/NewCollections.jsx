@@ -3,17 +3,24 @@ import './NewCollections.css'
 //import new_collection from '../Assets/new_collections'
 import Item from "../item/Item";
 
+
+
 const NewCollections = () => {
     const [new_collection, setNew_Collection] = useState([]);
-
+    
+    
     useEffect(()=>{
         const newcollectionUrl = `${process.env.REACT_APP_API_LINK}/newcollections`;
         fetch(newcollectionUrl)
         .then((response)=>response.json())
         .then((data)=>setNew_Collection(data));
     },[])
+
+    
     return(
-        <div className="new-collections">
+
+        
+        <div className={"new-collections-Mobile"}>
             <h1>Recent Uploads</h1>
             <hr />
             <div className="collections">
