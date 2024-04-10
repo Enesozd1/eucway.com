@@ -5,10 +5,16 @@ import './Popular.css';
 
 
 const Popular =() => {
-   
+    return(
+        <div className='temp'>
+    
+</div>
+    )
+    
 }
 
 export default Popular;
+
 //<div className="popular">
 //<h1>Popular Stuff</h1>
 //<hr />

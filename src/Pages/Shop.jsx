@@ -10,9 +10,10 @@ const Shop = () => {
         <div>
             {useScreenSize()<500?<Hero />:<></>}
             
-            <Popular />
+            
             <Offers />
-        
+            
+            {useScreenSize()>500? <Popular />:<></>}
         {useScreenSize()>500? <NewCollections />:<></>}
          
             <NewsLetter />

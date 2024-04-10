@@ -38,7 +38,7 @@ const LoginSignup = () => {
     });
     
     
-    const [message, setMessage] = useState('Password must have at least 8 letters, 1 upper and lowercase letter')
+    const [message, setMessage] = useState('Password must have at least 8 letters, 1 number, upper and lowercase letter')
     const [inputfilled, setInputFilled] = useState(false);
     const changeHandler = (e) => {
         setFormData({...formData,[e.target.name]:e.target.value})
@@ -217,14 +217,14 @@ const LoginSignup = () => {
             }
         } 
         
-
+        //if all cases bla bla false then set false = not validated = red
         
         if(allCases(formData.password)=== false && inputfilled === false){ 
             if(EmailVer(formData.email)===false){
                 setMessage("Enter a valid email address")
             }
             else{
-                setMessage("Password must have at least 8 letters, 1 upper and lowercase letter")
+                setMessage("Password must have at least 8 letters, 1 number, upper and lowercase letter")
             }
             
             
