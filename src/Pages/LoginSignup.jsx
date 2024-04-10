@@ -27,6 +27,7 @@ const verificationarray = [];
 const LoginSignup = () => {
     
     //const navigate = useNavigate();
+    //const [passValidated, setpassValidated] = useState(true)
     const [elementDeleted, setElementDeleted] = useState(false)
     const [state, setState] = useState("Login");
     const [formData, setFormData] = useState({
@@ -160,6 +161,12 @@ const LoginSignup = () => {
                 number = /[0-9]/.test(string);
             return upper && lower && number;
         }
+        const containsWhitespace = str => /\w\s+\w/.test(str);
+        //const containsWhitespace = str => /\s/.test(str);
+        ///function checkUsername(string){
+        //    const whitespace = str => /\s/.test(str);
+        //    return whitespace;
+        //}
 
         function EmailVer(string) {
             const
@@ -168,22 +175,29 @@ const LoginSignup = () => {
         }
 
         if(formData.password.trim().length < 2 ||formData.email.trim().length < 2 || formData.username.trim().length < 2){
+
             setMessage("Fill Out All input fields")
             setInputFilled(false)
         }
         else if(allCases(formData.password)=== true && formData.email.trim().length > 2 && formData.username.trim().length > 2){  //problem rises when @ is used
-
-            if(EmailVer(formData.email)===true){
-                setInputFilled(true)
-            }
             
-            else if(EmailVer(formData.email)===false){
-                setMessage("Enter a valid email address")
-            }
+            
+                if(EmailVer(formData.email)===true){
+                    setInputFilled(true)
+                }
+                
+                else if(EmailVer(formData.email)===false){
+                    setMessage("Enter a valid email address")
+                }
+            
+
+
+            
             
         }
 
         if(allCases(formData.password)=== true && inputfilled){
+            //setpassValidated(true)
             //let variable = generate(6)
         
             if(verificationCount < 2){
@@ -217,18 +231,32 @@ const LoginSignup = () => {
             }
         } 
         
-        //if all cases bla bla false then set false = not validated = red
+        
         
         if(allCases(formData.password)=== false && inputfilled === false){ 
-            if(EmailVer(formData.email)===false){
-                setMessage("Enter a valid email address")
+            if(containsWhitespace(formData.username)===true){  //add this to nested loop
+                setMessage("No spaces are allowed in the username")
+                setInputFilled(false)
+                
             }
-            else{
-                setMessage("Password must have at least 8 letters, 1 number, upper and lowercase letter")
+            else if(containsWhitespace(formData.username)===false){
+                if(EmailVer(formData.email)===false){
+                
+                    setMessage("Enter a valid email address")
+                }
+                else{
+                    
+                    setMessage("Password must have at least 8 letters, 1 number, upper and lowercase letter")
+                }
             }
+            
             
             
         }
+        
+        //else if(allCases(formData.password)=== false && inputfilled === true ){
+        //    setpassValidated(false)
+       // }
 
         
     }
@@ -249,7 +277,7 @@ const LoginSignup = () => {
                     
                     
                 </div>
-                {state==="Sign-Up"? <main className="tracker-box"><p className={message==="Requirements: Minimum 8 letters, At least 1 upper and lowercase letter"?'validated':'non-validated'}>{message}</p></main>:<></>}
+                {state==="Sign-Up"? <main className="tracker-box"><p className={'s'/*passValidated===false?'validated':'non-validated'*/}>{message}</p></main>:<></>}
                 <div className="loginsignup-agree">
                     <input type="checkbox" name="" id="" />
                     <p>I agree to terms of use & privacy policy</p>
