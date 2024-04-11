@@ -289,7 +289,7 @@ const LoginSignup = () => {
                 
                 
             </div>
-            : <div className="loginsignup-container">
+            : <div className="loginsignup-container-Login">
                 <h1>Code sent to your email</h1>
                 <div className="loginsignup-fields">
                 <div className="verifyButton"><input name="verification" value={formData.verification} onChange={changeHandler}  type="text" placeholder="Verification sent to your Email"/><button className="verifybut" onClick={()=>{verificationProcess()}}>Verify</button></div> 

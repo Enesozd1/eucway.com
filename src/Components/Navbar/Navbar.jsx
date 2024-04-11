@@ -42,6 +42,7 @@ const Navbar =() => {
 
     //const login = async () => {
     //    //console.log("Login Function Executed", formData);
+        
     //    const loginUrl = `${process.env.REACT_APP_API_LINK}/login`;
     //    let responseData;
     //    await fetch(loginUrl,{
