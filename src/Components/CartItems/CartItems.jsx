@@ -21,7 +21,7 @@ const CartItems = () => {
     Object.entries(cartItems).forEach(([key, value]) => {
         if (value > 0) {
             all_product.forEach(product => {
-                if (product.id == key) {
+                if (product.id === key) {
                     let productWithQuantity = {...product, quantity: value};
                     productWithQuantityArray.push(productWithQuantity);
                 
