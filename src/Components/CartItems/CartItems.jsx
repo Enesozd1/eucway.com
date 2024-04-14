@@ -3,11 +3,58 @@ import './CartItems.css'
 import { ShopContext } from "../../Context/ShopContext";
 import remove_icon from '../Assets/cart_cross_icon.png'
 import { Link } from "react-router-dom";
-const CartItems = () => {
-    const {getTotalCartAmount,all_product, cartItems,RemoveFromCart} = useContext(ShopContext);
-   
 
+//import { useSelector} from 'react-redux';
+
+const CartItems = () => {
+    const {getTotalCartAmount,all_product,  cartItems,RemoveFromCart} = useContext(ShopContext);
+    //const user = useSelector((state) => state.auth);
+    const handlecheckout = () => {
+        
+        //Object.entries(cartItems).forEach(([key, value]) => {
+        //    if (value > 0) {
+         //       console.log(`Element ${key} has a value of ${value}`);
+        //        console.log(all_product)
+        //    }     
+    //});
+    let productWithQuantityArray = []; 
+    Object.entries(cartItems).forEach(([key, value]) => {
+        if (value > 0) {
+            all_product.forEach(product => {
+                if (product.id == key) {
+                    let productWithQuantity = {...product, quantity: value};
+                    productWithQuantityArray.push(productWithQuantity);
+                
+                    fetch(`${process.env.REACT_APP_API_LINK}/create-checkout-session`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            productWithQuantityArray,
+                            //userId : user._id,
+                        })
+                    })
+                    .then(response => response.json())
+                    
+                    .then(data => {
+                        if(data.url){
+                            console.log(data.url)
+                            window.location.href=data.url;
+                        }
+                    })
+                    .catch((error) => console.log(error.message));
+                    
+                    
+                   // console.log(productWithQuantity);
+                }
+            });
+        }
+    });
     
+    
+    }
+
     
     return(
         <div className="cartitems">
@@ -58,7 +105,7 @@ const CartItems = () => {
                     </div>
                     
                     {localStorage.getItem('auth-token') !== null ? (
-                    <Link to='/payment'><button>Proceed To Checkout</button></Link>
+                    <Link to="/payment/"><button onClick={handlecheckout}>Proceed To Checkout</button></Link>
                     ) : (
                     <button disabled>Proceed To Checkout</button>
                     )}

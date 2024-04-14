@@ -1,4 +1,4 @@
-.checkout-successful-page {
+.error-page {
     text-align: center;
     padding: 20px;
     background-color: #f2f2f2;
@@ -9,16 +9,16 @@
     align-items: center;
 }
 
-.checkout-successful-page h1 {
+.error-page h1 {
     font-size: 80px;
     margin-bottom: 20px;
 }
 
-.checkout-successful-page h2 {
+.error-page h2 {
     font-size: 30px;
     margin-bottom: 20px;
 }
 
-.checkout-successful-page p {
+.error-page p {
     font-size: 20px;
 }

@@ -11,7 +11,7 @@ import bumper_banner from './Components/Assets/banner_mens.png'
 import pads_banner from './Components/Assets/banner_women.png'
 import Payment from './Pages/Payment';
 import Verification from './Pages/Verification';
-
+import PageNotFound from './Pages/PageNotFound';
 
 function App() {
   
@@ -30,6 +30,7 @@ function App() {
           <Route path='/login' element={<LoginSignup/>}/>
           <Route path='/payment' element={<Payment />} />
           <Route path='/verification' element={<Verification/>}/>
+          <Route path='*' element={<PageNotFound />} />
         </Routes>
         <Footer />
 
