@@ -3,12 +3,22 @@ import './CartItems.css'
 import { ShopContext } from "../../Context/ShopContext";
 import remove_icon from '../Assets/cart_cross_icon.png'
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 //import { useSelector} from 'react-redux';
 
 const CartItems = () => {
+
     const {getTotalCartAmount,all_product,  cartItems,RemoveFromCart} = useContext(ShopContext);
     //const user = useSelector((state) => state.auth);
+    const [currency, setCurrency] = useState('eur');
+
+    
+    const handleCurrencyChange = (event) => {
+        setCurrency(event.target.value);
+       
+    };
+    
     const handlecheckout = () => {
         
         //Object.entries(cartItems).forEach(([key, value]) => {
@@ -22,9 +32,10 @@ const CartItems = () => {
         if (value > 0) {
             all_product.forEach(product => {
                 if (String(product.id) === key) {
-                    let productWithQuantity = {...product, quantity: value};
+                    let productWithQuantity = {...product, quantity: value, currency: currency};
+                    
                     productWithQuantityArray.push(productWithQuantity);
-                
+                    
                     fetch(`${process.env.REACT_APP_API_LINK}/create-checkout-session`, {
                         method: 'POST',
                         headers: {
@@ -44,6 +55,7 @@ const CartItems = () => {
                         }
                     })
                     .catch((error) => console.log(error.message));
+                    
                     
                     
                    // console.log(productWithQuantity);
@@ -86,7 +98,16 @@ const CartItems = () => {
             })}
             <div className="cartitems-down">
                 <div className="cartitems-total">
-                    <h1>Cart Totals</h1>
+                    <h1>Cart Totals</h1> 
+                    <label>
+                 
+                    
+                <select value={currency} onChange={handleCurrencyChange}>
+                    <option value="eur">Euro</option>
+                    <option value="usd">USD</option>
+                </select>
+                
+            </label>
                     <div>
                         <div className="cartitems-total-item">
                             <p>Subtotal</p>
@@ -105,7 +126,7 @@ const CartItems = () => {
                     </div>
                     
                     {localStorage.getItem('auth-token') !== null ? (
-                    <Link to="/payment/"><button onClick={handlecheckout}>Proceed To Checkout</button></Link>
+                    <Link to="/payment"><button onClick={handlecheckout}>Proceed To Checkout</button></Link>
                     ) : (
                     <button disabled>Proceed To Checkout</button>
                     )}
