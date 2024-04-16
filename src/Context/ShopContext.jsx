@@ -16,6 +16,7 @@ const ShopContextProvider = (props) => {
     const [all_product, setAll_Product] = useState([]);
 
     const [cartItems, setCartItems] = useState(getDefaultCart());
+    //const [Pavailable, setPavailable] = useState(true)
     
     useEffect(() =>{
         
@@ -43,8 +44,25 @@ const ShopContextProvider = (props) => {
     
    
     const addToCart = (itemId) => {
+        //console.log(itemId)
+        //const productMap = new Map(all_product.map(product => [String(product.id), product]));
         setCartItems((prev) => ({...prev,[itemId]:prev[itemId] +1}));
         const addtocartUrl = `${process.env.REACT_APP_API_LINK}/addtocart`;
+        //Object.entries(cartItems).forEach(([key, value]) => {
+        //    if (value > 0) {
+        //        const product = productMap.get(key);
+                
+        //        if (product.id===itemId) {
+        //            if(product.available){
+        //                setCartItems((prev) => ({...prev,[itemId]:prev[itemId] +1}));
+                        //setPavailable(true)
+        //            }
+        //            else if(product.available===false)
+        //            alert("This Product is not currently available")
+       //         }
+        //    }
+        //});
+       
         if(localStorage.getItem('auth-token')){
             fetch(addtocartUrl,{
                 method:'POST',

@@ -104,7 +104,7 @@ const CartItems = () => {
                     
                 <select value={currency} onChange={handleCurrencyChange}>
                     <option value="eur">Euro</option>
-                    <option value="usd">USD</option>
+                    <option value="usd">USD (Currently Not Available)</option>
                 </select>
                 
             </label>
