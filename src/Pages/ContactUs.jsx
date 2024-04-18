@@ -69,9 +69,10 @@ const ContactUs = () => {
                     if (data.success) {
                         
                         sendEmail()
-                    } else {
-                        alert("Email address not found")
+                    } else{
+                        alert("Email not found / 24 Hours didn't pass")
                     }
+                    
             })
                 }
        
@@ -84,7 +85,7 @@ const ContactUs = () => {
     return (
         <div className="contact-us">
     <h1>Contact Us</h1>
-    <p className="warning">You can send up to 3 messages per day.</p>
+    <p className="warning">You can send 1 message per day.</p>
     <form onSubmit={handleSubmit}>
         <label>
             Email:
