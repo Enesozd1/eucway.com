@@ -1,0 +1,63 @@
+.contact-us {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+    box-sizing: border-box;
+}
+
+.contact-us h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 2em;
+}
+
+.warning {
+    color: red;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-us form {
+    width: 80%;
+    max-width: 600px;
+}
+
+.contact-us input, .contact-us textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    line-height: 1.5; /* Increase line-height */
+    resize: none;
+}
+
+.contact-us input[type="email"] {
+    margin-bottom: 30px; /* Add more space between email and message input */
+}
+
+.contact-us input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-us input[type="submit"]:hover {
+    background-color: #b30000;
+}
+
+@media (max-width: 600px) {
+    .contact-us h1 {
+        font-size: 1.5em;
+    }
+
+    .contact-us textarea {
+        height: 100px;
+    }
+}

@@ -12,6 +12,8 @@ import pads_banner from './Components/Assets/banner_women.png'
 import Payment from './Pages/Payment';
 import Verification from './Pages/Verification';
 import PageNotFound from './Pages/PageNotFound';
+import ContactUs from './Pages/ContactUs';
+
 
 function App() {
   
@@ -30,6 +32,7 @@ function App() {
           <Route path='/login' element={<LoginSignup/>}/>
           <Route path='/payment' element={<Payment />} />
           <Route path='/verification' element={<Verification/>}/>
+          <Route path='/contactus' element={<ContactUs />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
         <Footer />
