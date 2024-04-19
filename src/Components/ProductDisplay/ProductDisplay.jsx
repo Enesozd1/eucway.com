@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import './ProductDisplay.css'
 import { ShopContext } from "../../Context/ShopContext";
+import { Link } from 'react-router-dom';
+
 
 const ProductDisplay = (props) => {
     const {product} = props;
@@ -26,7 +28,10 @@ const ProductDisplay = (props) => {
                 </div>
                 <div className="productdisplay-right-description"> 
                 <p>{product.description}</p>
+                <div className="button-container">
                 <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
+                <Link to="/contactus" className="custom-order-link">Do you want a custom order?</Link>
+                </div>
                 </div>
             </div>
         </div>

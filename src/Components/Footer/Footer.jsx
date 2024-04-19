@@ -13,7 +13,7 @@ const Footer = () => {
                 <p>EUCWAY</p>
             </div>
             <ul className="footer-links">
-                <li>Contact</li>
+                <Link to="/contactus"><li>Contact</li></Link>
                 <li>About</li>
             </ul>
             <div className="footer-social-icon">

@@ -1,3 +1,6 @@
+a{
+    text-decoration: none;
+}
 .footer{
     display: flex;
     flex-direction: column;
@@ -26,6 +29,7 @@
     gap: 50px;
     color: #252525;
     font-size: 20px;
+    
 }
 .footer-social-icon{
     display: flex;
