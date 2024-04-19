@@ -136,8 +136,11 @@ const CartItems = () => {
                     
                     <div className="cartitems-promobox">
                     <input type="text" placeholder="Promo Code" />
-                    <button>Submit</button>
-
+                    {localStorage.getItem('auth-token') !== null ? (
+                        <button onClick={() => alert("Event")}>Submit</button>
+                    ) : (
+                    <button disabled>Submit</button>
+                    )}
                     </div>
                 </div>
             </div>

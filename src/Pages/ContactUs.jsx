@@ -96,7 +96,7 @@ const ContactUs = () => {
             <textarea name="message" value={message} onChange={handleInputChange} />
         </label>
         <p>{wordCount}/500 words</p>
-        <p>{message}</p>
+        
         <input type="submit" value="Submit" disabled={wordCount > 500} />
     </form>
 </div>
