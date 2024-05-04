@@ -1,5 +1,20 @@
 
-
+.country-form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    
+  }
+  
+  .country-form label {
+    margin-bottom: 10px;
+  }
+  
+  .country-form select {
+    padding: 5px;
+    font-size: 16px;
+  }
+  
 label {
     font-size: 1.2em;
     margin-right: 10px;

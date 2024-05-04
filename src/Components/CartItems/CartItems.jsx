@@ -2,12 +2,21 @@ import React, { useContext } from "react";
 import './CartItems.css'
 import { ShopContext } from "../../Context/ShopContext";
 import remove_icon from '../Assets/cart_cross_icon.png'
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import { useState } from "react";
 
 //import { useSelector} from 'react-redux';
 
 const CartItems = () => {
+
+    const [country, setCountry] = useState('');
+    //const [countrychosen, setcountrychosen] = useState(false);
+
+  const handleCountryChange = async (event) => {
+    const selectedCountry = event.target.value;
+    setCountry(selectedCountry);
+    //console.log(country)
+  }
 
     const {getTotalCartAmount,all_product,  cartItems,RemoveFromCart} = useContext(ShopContext);
     //const user = useSelector((state) => state.auth);
@@ -20,52 +29,72 @@ const CartItems = () => {
     };
     
     const handlecheckout = () => {
-        
-        //Object.entries(cartItems).forEach(([key, value]) => {
-        //    if (value > 0) {
-         //       console.log(`Element ${key} has a value of ${value}`);
-        //        console.log(all_product)
-        //    }     
-    //});
-    let productWithQuantityArray = []; 
-    Object.entries(cartItems).forEach(([key, value]) => {
-        if (value > 0) {
-            all_product.forEach(product => {
-                if (String(product.id) === key) {
-                    let productWithQuantity = {...product, quantity: value, currency: currency};
-                    
-                    productWithQuantityArray.push(productWithQuantity);
-                    
-                    fetch(`${process.env.REACT_APP_API_LINK}/create-checkout-session`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                        body: JSON.stringify({
-                            productWithQuantityArray,
-                            //userId : user._id,
-                        })
-                    })
-                    .then(response => response.json())
-                    
-                    .then(data => {
-                        if(data.url){
-                            console.log(data.url)
-                            window.location.href=data.url;
-                        }
-                    })
-                    .catch((error) => console.log(error.message));
-                    
-                    
-                    
-                   // console.log(productWithQuantity);
-                }
-            });
+        if(country === ""){
+            //setcountrychosen(false)
+            alert("Choose the country to be shipped")
         }
+        else if(country!== ""){
+            //setcountrychosen(true)
+        
+        
+
+        
+
+        
+    
+        let productWithQuantityArray = []; 
+        let Totalweight = 0
+        
+
+        Object.entries(cartItems).forEach(([key, value]) => {
+            if (value > 0) {
+                all_product.forEach(product => {
+                    if (String(product.id) === key) {
+                        let productWithQuantity = {...product, quantity: value, currency: currency};
+                        console.log(productWithQuantity)
+                        
+                        Totalweight = Totalweight + productWithQuantity.weight * productWithQuantity.quantity
+                        
+                        productWithQuantityArray.push(productWithQuantity);
+                        
+                        fetch(`${process.env.REACT_APP_API_LINK}/create-checkout-session`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({
+                                productWithQuantityArray,
+                                Totalweight,
+                                country,
+                            })
+                        })
+                        .then(response => response.json())
+                        
+                        .then(data => {
+                            if(data.url){
+                                //console.log(data.url)
+                                window.location.href=data.url;
+                            }
+                        })
+                        .catch((error) => console.log(error.message));
+                        
+                    }
+                    
+                });
+
+                
+            }
+            
     });
     
-    
+    //console.log("Total weight: "+ Totalweight)
+    //        let weightKey = Totalweight + "kg";
+    //        console.log(country)
+    //        console.log("shipping price: "+ shippingFees[country][Totalweight])
+
     }
+    
+}
 
     
     return(
@@ -108,6 +137,40 @@ const CartItems = () => {
                 </select>
                 
             </label>
+            <form className="country-form">
+      <label>
+        
+        <select value={country} onChange={handleCountryChange}>
+          <option value="">Country For Shipping</option>
+          <option value="Belgium">Belgium</option>
+          <option value="Denmark">Denmark</option>
+          <option value="Netherlands">Netherlands</option>
+          <option value="Croatia">Croatia</option>
+          <option value="Luxemburg">Luxemburg</option>
+          <option value="Slovenia">Slovenia</option>
+          <option value="Estonia">Estonia</option>
+          <option value="Lithuania">Lithuania</option>
+          <option value="Latvia">Latvia</option>
+          <option value="Romania">Romania</option>
+          <option value="France">France</option>
+          <option value="Italy">Italy</option>
+          <option value="Bulgaria">Bulgaria</option>
+          <option value="Finland">Finland</option>
+          <option value="Ireland">Ireland</option>
+          <option value="Germany">Germany</option>
+          <option value="Hungary">Hungary</option>
+          <option value="Poland">Poland</option>
+          <option value="Portugal">Portugal</option>
+          <option value="Greece">Greece</option>
+          <option value="Spain">Spain</option>
+          <option value="Sweden">Sweden</option>
+          <option value="Austria">Austria</option>
+          <option value="Czechia">Czechia</option>
+          <option value="Slovakia">Slovakia</option>
+        </select>
+      </label>
+      
+    </form>
                     <div>
                         <div className="cartitems-total-item">
                             <p>Subtotal</p>
@@ -126,7 +189,7 @@ const CartItems = () => {
                     </div>
                     
                     {localStorage.getItem('auth-token') !== null ? (
-                    <Link to="/payment"><button onClick={handlecheckout}>Proceed To Checkout</button></Link>
+                    <button onClick={handlecheckout}>Proceed To Checkout</button>
                     ) : (
                     <button disabled>Proceed To Checkout</button>
                     )}
