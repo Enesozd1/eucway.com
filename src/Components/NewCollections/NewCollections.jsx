@@ -2,20 +2,29 @@ import React, { useEffect, useState } from "react";
 import './NewCollections.css'
 //import new_collection from '../Assets/new_collections'
 import Item from "../item/Item";
+import LoadingScreen from "../../Pages/LoadingScreen";
 
 
 
 const NewCollections = () => {
     const [new_collection, setNew_Collection] = useState([]);
-    
+    const [isLoading, setIsLoading] = useState(true);
     
     useEffect(()=>{
         const newcollectionUrl = `${process.env.REACT_APP_API_LINK}/newcollections`;
         fetch(newcollectionUrl)
         .then((response)=>response.json())
-        .then((data)=>setNew_Collection(data));
+        .then((data)=>{
+            setNew_Collection(data)
+            setIsLoading(false);
+
+    });
     },[])
 
+    if(isLoading){
+        <LoadingScreen />
+    }
+    
     
     return(
 
