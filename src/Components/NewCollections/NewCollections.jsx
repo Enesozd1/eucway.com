@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './NewCollections.css'
 //import new_collection from '../Assets/new_collections'
 import Item from "../item/Item";
-import LoadingScreen from "../../Pages/LoadingScreen";
+
 
 
 
@@ -21,13 +21,24 @@ const NewCollections = () => {
     });
     },[])
 
-    if(isLoading){
-        <LoadingScreen />
-    }
+    
+      
     
     
     return(
-
+        
+        <div>
+        {isLoading? 
+            
+            <div className="loading-screen">
+              
+              <div className="loader">      
+              </div>
+            </div>
+            
+          :
+            <></>
+          }
         
         <div className={"new-collections-Mobile"}>
             <h1>Recent Uploads</h1>
@@ -37,6 +48,7 @@ const NewCollections = () => {
                     return <Item key={i} id={item.id} name={item.name} image={item.image} new_price={item.new_price} old_price={item.old_price}  />
                 })}
             </div>
+        </div>
         </div>
     )
 }

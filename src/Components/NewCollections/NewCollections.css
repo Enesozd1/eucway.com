@@ -1,4 +1,37 @@
-
+.loading-screen {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Align items to the start of the container */
+  height: 80vh; /* Reduce the height of the container */
+  padding-top: 10vh; /* Add some padding at the top */
+  background-color: #f2f2f2;
+  }
+  
+  .logo {
+    width: 20%; /* Responsive width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .company-name {
+    
+    margin: 20px 0;
+  }
+  
+  .loader {
+    border: 16px solid #BDBDBD; /* Darker grey */
+    border-top: 16px solid #3F51B5; /* Indigo */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
 .new-collections-Mobile{
     
     display: flex;
