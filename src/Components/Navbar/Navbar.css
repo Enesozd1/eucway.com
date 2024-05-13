@@ -1,3 +1,35 @@
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    background-color: #f9f9f9;
+    padding: 0; /* Reset padding */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 1px solid #ddd; /* Add border for the box effect */
+}
+.dropdown-content li {
+    padding: 12px 24px; /* Adjust padding as needed */
+    border-bottom: 1px solid #ddd; /* Adds a line between each item */
+    margin: 0; /* Reset margin to remove any unwanted space */
+}
+.dropdown-content li:last-child {
+    border-bottom: none; /* Removes the bottom border for the last item */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown span::after {
+    content: "▼"; /* Add your down arrow icon here */
+    margin-left: 5px;
+}
 .navbar{
     display: flex;
     justify-content: space-around;

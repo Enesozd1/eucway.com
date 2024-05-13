@@ -1,0 +1,39 @@
+.container {
+    display: flex;
+    justify-content: space-around; /* Changed to space-around for even spacing */
+    flex-wrap: wrap; /* Allows items to wrap as needed */
+  }
+  
+  .image-wrapper {
+    flex: 0 0 calc(70% / 3); /* Adjusted width to be 70% of the container divided by 3 */
+    margin: 10px; /* Keeps the gap between images */
+    margin-top: 100px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .image-wrapper p {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    margin: 0;
+    text-align: center;
+  }
+  
+  /* Media Query for responsiveness */
+  @media (max-width: 768px) {
+    .image-wrapper {
+      flex: 0 0 calc(100% - 20px); /* Full width minus margin on small screens */
+    }
+  }
+  

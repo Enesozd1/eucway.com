@@ -1,0 +1,25 @@
+.euc-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust the gap as needed */
+    padding: 20px;
+}
+
+.euc-item {
+    text-align: center; /* Center the text under the image */
+}
+
+.euc-item img {
+    width: 100%; /* Adjust the width as needed */
+    max-width: 200px; /* Adjust the max-width as needed */
+    height: auto;
+    border: 1px solid #ddd; /* Optional: adds a border around the image */
+}
+
+.euc-item p {
+    margin-top: 10px; /* Space between image and title */
+    font-size: 1rem; /* Adjust the font size as needed */
+    color: #333; /* Adjust the color as needed */
+}
+
+/* Add responsive design as needed */

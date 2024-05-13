@@ -14,10 +14,19 @@ import Verification from './Pages/Verification';
 import PageNotFound from './Pages/PageNotFound';
 import ContactUs from './Pages/ContactUs';
 import LoadingScreen from './Pages/LoadingScreen';
-
+import Searcheuc from './Pages/searcheuc'
+import { useLocation } from 'react-router-dom';
 
 function App() {
+  function ConditionalFooter() {
+    const location = useLocation();
+    
+    if (location.pathname === '/searcheuc') {
+      return null;
+    }
   
+    return <Footer />;
+  }
   return (
     <div>
       <BrowserRouter> 
@@ -26,6 +35,8 @@ function App() {
           <Route path='/' element={<Shop/>}/>
           <Route path='/bumper' element={<ShopCategory banner={bumper_banner} category="bumper"/>}/>
           <Route path='/pads' element={<ShopCategory banner={pads_banner} category="pads"/>}/>
+          {/*<Route path='/searcheuc' element={<ShopCategory banner={pads_banner} category="pads"/>}/> */}
+
           <Route path='/product' element={<Product />}>
             <Route path=':productId' element={<Product />} />
           </Route>
@@ -35,10 +46,11 @@ function App() {
           <Route path='/verification' element={<Verification/>}/>
           <Route path='/contactus' element={<ContactUs />} />
           <Route path='/LoadingPage' element={<LoadingScreen />} />
+          <Route path='/searcheuc' element={<Searcheuc />} />
           <Route path='*' element={<PageNotFound />} />
 
         </Routes>
-        <Footer />
+        <ConditionalFooter />
 
       </BrowserRouter>
     </div>

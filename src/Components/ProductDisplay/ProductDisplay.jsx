@@ -2,16 +2,20 @@ import React, { useContext } from "react";
 import './ProductDisplay.css'
 import { ShopContext } from "../../Context/ShopContext";
 import { Link } from 'react-router-dom';
-
+//import { useState } from "react";
 
 const ProductDisplay = (props) => {
     const {product} = props;
     const {addToCart} = useContext(ShopContext);
+   
 
     return(
         <div className="productdisplay">
             <div className="productdisplay-left">
                 <div className="productdisplay-img-list">
+                    <img src={product.image2} alt="" />
+                    <img src={product.image3} alt="" />
+                    <img src={product.image4} alt="" />
                     
                 </div>
                 <div className="productdisplay-img">
