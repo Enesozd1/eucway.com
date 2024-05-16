@@ -13,6 +13,7 @@ const Navbar = () => {
     //const [menu, setMenu] = useState("shop");
     const { getTotalCartItems } = useContext(ShopContext);
     const menuRef = useRef();
+    
     //const location = useLocation();
 
     //useEffect(() => {

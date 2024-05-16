@@ -16,6 +16,7 @@ import ContactUs from './Pages/ContactUs';
 import LoadingScreen from './Pages/LoadingScreen';
 import Searcheuc from './Pages/searcheuc'
 import { useLocation } from 'react-router-dom';
+import ShopMake from './Pages/ShopMake';
 
 function App() {
   function ConditionalFooter() {
@@ -35,6 +36,10 @@ function App() {
           <Route path='/' element={<Shop/>}/>
           <Route path='/bumper' element={<ShopCategory banner={bumper_banner} category="bumper"/>}/>
           <Route path='/pads' element={<ShopCategory banner={pads_banner} category="pads"/>}/>
+          <Route path='/kingsong' element={<ShopMake banner={pads_banner} make="kingsong"/>}/>
+          <Route path='/inmotion' element={<ShopMake banner={pads_banner} make="inmotion"/>}/>
+          <Route path='/leaperkim' element={<ShopMake banner={pads_banner} make="leaperkim"/>}/>
+          <Route path='/begode' element={<ShopMake banner={pads_banner} make="begode"/>}/>
           {/*<Route path='/searcheuc' element={<ShopCategory banner={pads_banner} category="pads"/>}/> */}
 
           <Route path='/product' element={<Product />}>
@@ -47,6 +52,7 @@ function App() {
           <Route path='/contactus' element={<ContactUs />} />
           <Route path='/LoadingPage' element={<LoadingScreen />} />
           <Route path='/searcheuc' element={<Searcheuc />} />
+          
           <Route path='*' element={<PageNotFound />} />
 
         </Routes>

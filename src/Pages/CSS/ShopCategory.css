@@ -1,3 +1,18 @@
+.shop-category h1{
+    text-align: center; /* Centers the text */
+    color: #333; /* Dark grey color for a modern look */
+    font-family: 'Arial', sans-serif; /* A clean, sans-serif font */
+    font-size: 2.5rem; /* A larger font size for prominence */
+    margin-top: 20px; /* Adds space above the h1 */
+    margin-bottom: 20px; /* Adds space below the h1 */
+    padding: 10px 0; /* Adds padding above and below the text */
+    /* A light background color to stand out from the page */
+    border-radius: 5px; /* Slightly rounded corners for a softer look */
+    
+    max-width: 80%; /* Maximum width of the h1 */
+    margin-left: auto; /* Together with margin-right, centers the h1 block */
+    margin-right: auto;
+}
 .shopcategory-banner{
     display: block;
     margin: 30px auto;
