@@ -7,12 +7,17 @@ import {Link} from 'react-router-dom';
 
 const Footer = () => {
     return (
+        
         <div className="footer">
+            
             <div className="footer-logo">
+                
                 <img src={footer_logo} alt="" />
+
                 <p>EUCWAY</p>
             </div>
             <ul className="footer-links">
+            
                 <Link to="/contactus"><li>Contact</li></Link>
                 <li>About</li>
             </ul>
@@ -29,8 +34,10 @@ const Footer = () => {
             <div className="footer-copyright">
                 <hr />
                 <p>Copyright @ 2024 -All Rights Reserved</p>
+                
             </div>
         </div>
+        
     )
 }
 
