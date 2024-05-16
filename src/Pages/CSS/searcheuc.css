@@ -13,7 +13,7 @@
 
 .euc-item img {
     width: 100%; /* Adjust the width as needed */
-    max-width: 400px; /* Adjust the max-width as needed */
+    max-width: 200px; /* Adjust the max-width as needed */
     height: auto;
     border: 1px solid #ddd; /* Optional: adds a border around the image */
 }
@@ -26,7 +26,7 @@
 
 @media (max-width: 800px) {
     .euc-item img {
-        max-width: 250px; /* Adjust size for tablet view */
+        max-width: 200px; /* Adjust size for tablet view */
     }
     .euc-item p {
         font-size: 1.1rem; /* Adjust font size for tablet view */
@@ -36,13 +36,15 @@
 /* Media query for mobile devices */
 @media (max-width: 500px) {
     .euc-container {
-        flex-direction: column; /* Stack items vertically */
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: space-around; /* Distribute space around items */
+    }
+    .euc-item {
+        width: 40%; /* Set width to take up nearly half of the container */
+        margin-bottom: 10px; /* Add some space below each item */
     }
     .euc-item img {
-        max-width: 200px; /* Adjust size for mobile view */
-    }
-    .euc-item p {
-        font-size: 1rem; /* Adjust font size for mobile view */
+        max-width: 100%; /* Allow image to fill the item container */
     }
 }
 
