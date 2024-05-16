@@ -17,6 +17,7 @@ import LoadingScreen from './Pages/LoadingScreen';
 import Searcheuc from './Pages/searcheuc'
 import { useLocation } from 'react-router-dom';
 import ShopMake from './Pages/ShopMake';
+import NewCollections from './Components/NewCollections/NewCollections';
 
 function App() {
   function ConditionalFooter() {
@@ -40,6 +41,7 @@ function App() {
           <Route path='/inmotion' element={<ShopMake banner={pads_banner} make="inmotion"/>}/>
           <Route path='/leaperkim' element={<ShopMake banner={pads_banner} make="leaperkim"/>}/>
           <Route path='/begode' element={<ShopMake banner={pads_banner} make="begode"/>}/>
+          <Route path='/newproducts' element={<NewCollections />}/>
           {/*<Route path='/searcheuc' element={<ShopCategory banner={pads_banner} category="pads"/>}/> */}
 
           <Route path='/product' element={<Product />}>

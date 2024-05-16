@@ -1,51 +1,53 @@
-.hero{
-    height: 60vh;
-    background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
-    display: flex;
-
+.btn {
+    padding: 10px 20px;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s, transform 0.3s;
+  
 }
-.hero-lastest-btn{
-    display: none;
-}
-
-
-.hero-left{
-    flex: 1;
+.hero {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 20px;
-    padding-left: 180px;
-    line-height: 1.1;
-}
-.hero-left h1{
-    color: #090909;
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-.hero-left p{
-    color: #171717;
-    font-size: 100px;
-    font-weight: 700;
-} 
-.hero-hand-icon{
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-.hero-hand-icon img{
-    width: 105px;
-}
-
-
-.hero-right{
-    flex: 1;
-    display: flex;
     align-items: center;
     justify-content: center;
-
+    height: 15vh; /* This will take the full height of the viewport */
+    text-align: center; /* This will center the text inside the <p> tag */
+    display: 100px;
+    
+  }
+.hero button{
+    width: 200px;
+    height: 50px;
+    
 }
+.hero p{
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+  
+
+/* Hover Effect */
+.btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  
+}
+.btn:active{
+    background-color: #004085;
+    transform: scale(0.95);
+}
+
+
+
+
+
+
 @media(max-width:1280px){
     .hero-left{
         padding-left: 100px ;
@@ -98,6 +100,14 @@
 }
 
 @media(max-width:800px){
+    .hero button{
+        width: 170px;
+        height:30px;
+        font-size: 13px;
+    }
+    .hero p{
+        font-size: 17px;
+    }
     .hero-left{
         padding-left: 30px ;
     }
@@ -123,7 +133,13 @@
     }
 }
 @media(max-width:500px){
-
+    .hero button{
+        width: 200px;
+        height: 50px;
+    }
+    .hero p{
+        font-size: 22px;
+    }
     .hero{
         flex-direction: column;
     }
@@ -142,21 +158,7 @@
         width: 55px;
     }
 
-    .hero-lastest-btn{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        width: 310px;
-        height: 70px;
-        border-radius: 75px;
-        margin-top: 50px;
-        margin-left: 50px;
-        background: #ff4141;
-        color: white;
-        font-size: 22px;
-        font-weight: 500;
-    }
+    
     
     .conditionalRender{
         margin-top: 50px;
