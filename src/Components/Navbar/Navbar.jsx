@@ -47,6 +47,11 @@ const Navbar = () => {
         e.target.classList.toggle('open');
     }
 
+    const handleDropdownClick = (e) => {
+        menuRef.current.classList.remove('nav-menu-visible'); //this used to toggle off navbar
+        
+    }
+
     return (
         <div className="navbar">
             <div className="nav-logo">
@@ -61,17 +66,17 @@ const Navbar = () => {
                 <li className="dropdown">
                     <span>Shop</span>
                     <ul className="dropdown-content">
-                        <li><Link to='/pads'>Pads</Link></li>
-                        <li><Link to='/bumper'>Accessories</Link></li>
+                        <li><Link to='/pads' onClick={handleDropdownClick}>Pads</Link></li>
+                        <li><Link to='/bumper' onClick={handleDropdownClick}>Accessories</Link></li>
                     </ul>
                 </li>
                 <li className="dropdown">
                     <span>By Euc</span>
                     <ul className="dropdown-content">
-                        <li><Link to='/kingsong'>Kingsong</Link></li>
-                        <li><Link to='/inmotion'>Inmotion</Link></li>
-                        <li><Link to='/leaperkim'>Leaperkim</Link></li>
-                        <li><Link to='/begode'>Begode</Link></li>
+                        <li><Link to='/kingsong' onClick={handleDropdownClick}>Kingsong</Link></li>
+                        <li><Link to='/inmotion' onClick={handleDropdownClick}>Inmotion</Link></li>
+                        <li><Link to='/leaperkim' onClick={handleDropdownClick}>Leaperkim</Link></li>
+                        <li><Link to='/begode' onClick={handleDropdownClick}>Begode</Link></li>
                     </ul>
                 </li>
             </ul>
