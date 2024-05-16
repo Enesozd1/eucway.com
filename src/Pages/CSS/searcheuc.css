@@ -1,17 +1,19 @@
 .euc-container {
     display: flex;
+    
     justify-content: center;
     gap: 20px; /* Adjust the gap as needed */
     padding: 20px;
 }
 
 .euc-item {
+    
     text-align: center; /* Center the text under the image */
 }
 
 .euc-item img {
     width: 100%; /* Adjust the width as needed */
-    max-width: 200px; /* Adjust the max-width as needed */
+    max-width: 400px; /* Adjust the max-width as needed */
     height: auto;
     border: 1px solid #ddd; /* Optional: adds a border around the image */
 }
@@ -20,6 +22,28 @@
     margin-top: 10px; /* Space between image and title */
     font-size: 1rem; /* Adjust the font size as needed */
     color: #333; /* Adjust the color as needed */
+}
+
+@media (max-width: 800px) {
+    .euc-item img {
+        max-width: 250px; /* Adjust size for tablet view */
+    }
+    .euc-item p {
+        font-size: 1.1rem; /* Adjust font size for tablet view */
+    }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 500px) {
+    .euc-container {
+        flex-direction: column; /* Stack items vertically */
+    }
+    .euc-item img {
+        max-width: 200px; /* Adjust size for mobile view */
+    }
+    .euc-item p {
+        font-size: 1rem; /* Adjust font size for mobile view */
+    }
 }
 
 /* Add responsive design as needed */
