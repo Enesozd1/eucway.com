@@ -3,11 +3,18 @@ import './ProductDisplay.css'
 import { ShopContext } from "../../Context/ShopContext";
 import { Link } from 'react-router-dom';
 //import { useState } from "react";
+import { useState } from "react";
 
 const ProductDisplay = (props) => {
     const {product} = props;
     const {addToCart} = useContext(ShopContext);
-   
+    const [isAdded, setIsAdded] = useState(false);
+
+    const handleAddToCart = (id) => {
+        addToCart(id);
+        setIsAdded(true);
+        setTimeout(() => setIsAdded(false), 500); // Reset after the animation
+    }
 
     return(
         <div className="productdisplay">
@@ -33,7 +40,7 @@ const ProductDisplay = (props) => {
                 <div className="productdisplay-right-description"> 
                 <p>{product.description}</p>
                 <div className="button-container">
-                <button onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
+                <button className={isAdded ? 'button-added' : ''} onClick={() => handleAddToCart(product.id)}>ADD TO CART</button>
                 <Link to="/contactus" className="custom-order-link">Do you want a custom order?</Link>
                 </div>
                 </div>

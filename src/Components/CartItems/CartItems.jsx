@@ -96,6 +96,15 @@ const CartItems = () => {
     
 }
 
+
+    const [isClicked, setIsClicked] = useState(false);
+  
+    const handleClick = (id) => {
+      setIsClicked(true);
+      RemoveFromCart(id);
+      setTimeout(() => setIsClicked(false), 400); // Reset after the animation
+    };
+
     
     return(
         <div className="cartitems">
@@ -118,7 +127,7 @@ const CartItems = () => {
                         <p>€{e.new_price}</p>
                         <button className="cartitems-quantity">{cartItems[e.id]}</button>
                         <p>€{e.new_price*cartItems[e.id]}</p>
-                        <img className="cartitems-remove-icon" src={remove_icon} onClick={()=>{RemoveFromCart(e.id)}} alt="" />
+                        <img className={`cartitems-remove-icon ${isClicked ? 'icon-clicked' : ''}`} src={remove_icon} onClick={()=>{handleClick(e.id)}} alt="" />
                     </div>
                     <hr />
                 </div>

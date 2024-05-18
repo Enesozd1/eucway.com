@@ -38,7 +38,18 @@
     display: grid; 
     grid-template-columns: 1fr 1fr 1fr 1fr;
     row-gap: 80px;
+
+    gap: 40px;
+    display: flex;
+    flex-wrap: wrap; /* Ensure items wrap to the next line if needed */
+    justify-content: center; /* Center items horizontally */
+    
+        
+    
+    
 }
+
+
 
 @media(max-width:1280px){
     .shopcategory-banner{
@@ -60,9 +71,11 @@
         width: 90%;
         margin: 10px auto;
         row-gap: 40px;
+        
     }
     .shopcategory-products .item{
         margin: auto;
+        
     }
 
 }

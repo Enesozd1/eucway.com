@@ -59,6 +59,9 @@
 }
 .productdisplay-right button:hover {
     background: #ff0000; /* New hover color */
+    transform: scale(1.1); /* Increase the size of the button */
+    transition: transform 0.3s ease; /* Smooth transition for the scaling */
+
 }
 
 
@@ -91,7 +94,25 @@
 
 
 
-
+@keyframes addedToCart {
+    0% {
+      transform: scale(1);
+      background-color: #ff4141;
+    }
+    50% {
+      transform: scale(1.1);
+      background-color: #4CAF50;
+    }
+    100% {
+      transform: scale(1);
+      background-color: #ff4141;
+    }
+  }
+  
+  .button-added {
+    animation: addedToCart 0.5s ease;
+  }
+  
 @media(max-width:1280px){
     .productdisplay-img-list img{
         height: 133px;
