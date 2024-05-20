@@ -198,10 +198,20 @@ const CartItems = () => {
                     </div>
                     
                     {localStorage.getItem('auth-token') !== null ? (
-                    <button onClick={handlecheckout}>Proceed To Checkout</button>
-                    ) : (
-                    <button disabled>Proceed To Checkout</button>
-                    )}
+  <button onClick={handlecheckout}>Proceed To Checkout</button>
+) : (
+  <div style={{ position: 'relative' }}>
+    <button disabled>Proceed To Checkout</button>
+    <div style={{ 
+      position: 'absolute', 
+      top: '0', 
+      left: '0', 
+      right: '0', 
+      bottom: '0', 
+      cursor: 'not-allowed' 
+    }} onClick={() => alert('You need to log in first')}></div>
+  </div>
+)}
                 </div>
                 <div className="cartitems-promocode">
                     <p>Enter your promocode, if you have one</p>
