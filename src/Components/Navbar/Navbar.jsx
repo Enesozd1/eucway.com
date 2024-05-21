@@ -58,7 +58,7 @@ const Navbar = () => {
                 <Link to="/">
                     <img src={logo} alt="" />
                 </Link>
-                <p>EUCWAY</p>
+                <Link to="/"><p>EUCWAY</p></Link>
             </div>
             <img className='nav-dropdown' onClick={dropdownToggle} src={nav_dropdown} alt="" />
             <ul ref={menuRef} className="nav-menu">

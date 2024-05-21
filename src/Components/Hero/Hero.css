@@ -1,7 +1,7 @@
 .btn {
     padding: 10px 20px;
   border: none;
-  background-color: #007BFF;
+  background-color: #ff5a5a;
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -34,12 +34,12 @@
 
 /* Hover Effect */
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #f70d0d;
     transform: scale(1.05);
   
 }
 .btn:active{
-    background-color: #004085;
+    background-color: #ff5a5a;
     transform: scale(0.95);
 }
 

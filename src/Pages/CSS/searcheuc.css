@@ -16,6 +16,13 @@
     max-width: 200px; /* Adjust the max-width as needed */
     height: auto;
     border: 1px solid #ddd; /* Optional: adds a border around the image */
+    transition: background-color 0.3s, transform 0.3s;
+}
+.euc-item img:hover{
+    transform: scale(1.05);
+}
+.euc-item img:active{
+    transform: scale(0.95);
 }
 
 .euc-item p {

@@ -126,7 +126,7 @@ const CartItems = () => {
                         <p>{e.name}</p>
                         <p>€{e.new_price}</p>
                         <button className="cartitems-quantity">{cartItems[e.id]}</button>
-                        <p>€{e.new_price*cartItems[e.id]}</p>
+                        <p>€{Math.round(e.new_price*cartItems[e.id])}</p>
                         <img className={`cartitems-remove-icon ${isClicked ? 'icon-clicked' : ''}`} src={remove_icon} onClick={()=>{handleClick(e.id)}} alt="" />
                     </div>
                     <hr />
@@ -183,17 +183,19 @@ const CartItems = () => {
                     <div>
                         <div className="cartitems-total-item">
                             <p>Subtotal</p>
-                            <p>€{getTotalCartAmount()}</p>
+                            <p>€{Math.round(getTotalCartAmount())}</p>
                         </div>
+                        {/*
                         <hr />
                         <div className="cartitems-total-item">
                             <p>Shipping fee</p>
                             <p>Free</p>
                         </div>
+        */}
                         <hr />
                         <div className="cartitems-total-item">
                             <h3>Total</h3>
-                            <h3>€{getTotalCartAmount()}</h3>
+                            <h3>€{Math.round(getTotalCartAmount())}</h3>
                         </div>
                     </div>
                     
