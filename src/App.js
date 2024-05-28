@@ -37,6 +37,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Shop/>}/>
           <Route path='/bumper' element={<ShopCategory banner={bumper_banner} category="bumper"/>}/>
+          <Route path='/accessories' element={<ShopCategory banner={bumper_banner} category="accessories"/>}/>
+          <Route path='/handle' element={<ShopCategory banner={bumper_banner} category="handle"/>}/>
           <Route path='/pads' element={<ShopCategory banner={pads_banner} category="pads"/>}/>
           <Route path='/kingsong' element={<ShopMake banner={pads_banner} make="kingsong"/>}/>
           <Route path='/inmotion' element={<ShopMake banner={pads_banner} make="inmotion"/>}/>

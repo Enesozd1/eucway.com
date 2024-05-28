@@ -11,9 +11,12 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    
 }
 .productdisplay-img-list img{
     height: 163px;
+    border-radius: 15px; /* Rounds the corners of the image */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
 }
 .productdisplay-main-img{
     width: 586px;

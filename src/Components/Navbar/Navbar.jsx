@@ -67,7 +67,9 @@ const Navbar = () => {
                     <span>Shop</span>
                     <ul className="dropdown-content">
                         <li><Link to='/pads' onClick={handleDropdownClick}>Pads</Link></li>
-                        <li><Link to='/bumper' onClick={handleDropdownClick}>Accessories</Link></li>
+                        <li><Link to='/handle' onClick={handleDropdownClick}>Handles</Link></li>
+                        <li><Link to='/bumper' onClick={handleDropdownClick}>Bumper</Link></li>
+                        <li><Link to='/accessories' onClick={handleDropdownClick}>Accessories</Link></li>
                     </ul>
                 </li>
                 <li className="dropdown">

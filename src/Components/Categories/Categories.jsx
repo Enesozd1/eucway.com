@@ -16,7 +16,7 @@ const Categories = () => {
     <p>Search by EUC</p>
   </div>
   <div class="image-wrapper">
-  <Link to="/bumper"><img src={tempaccessories} alt="Other Accessories" /></Link>
+  <Link to="/accessories"><img src={tempaccessories} alt="Other Accessories" /></Link>
     <p>Other Accessories</p>
   </div>
 </div>
