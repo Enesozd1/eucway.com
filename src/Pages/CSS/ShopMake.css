@@ -29,10 +29,11 @@
     display: flex;
     flex-wrap: wrap; /* Ensure items wrap to the next line if needed */
     justify-content: center; /* Center items horizontally */
-    
-        
-    
-    
+}
+
+.shopmake-products img{
+    border-radius: 15px; /* Rounds the corners of the image */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
 }
 
 .shopcategory-indexSort{

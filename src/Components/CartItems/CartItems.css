@@ -63,6 +63,10 @@ select {
     font-size: 18px;
     font-weight: 600;
 }
+.cartitems-format-main img{
+    border-radius: 15px; /* Rounds the corners of the image */
+    
+}
 .cartitems-format{
     font-size: 17px;
     font-weight: 500;
