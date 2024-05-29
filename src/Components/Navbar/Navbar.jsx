@@ -6,28 +6,11 @@ import { Link } from "react-router-dom";
 import { ShopContext } from "../../Context/ShopContext";
 import nav_dropdown from "../Assets/navdropdown.png";
 import LoginSignup from '../../Pages/LoginSignup';
-//import { useLocation } from "react-router-dom";
-//import { useEffect } from "react";
 
 const Navbar = () => {
-    //const [menu, setMenu] = useState("shop");
     const { getTotalCartItems } = useContext(ShopContext);
     const menuRef = useRef();
     
-    //const location = useLocation();
-
-    //useEffect(() => {
-    //    const isBumper = location.pathname.endsWith('/bumper');
-    //    const isPads = location.pathname.endsWith('/pads');
-    //    if (isBumper) {
-            //setMenu("bumper");
-    //    } else if (isPads) {
-            //setMenu("pads");
-   //     } else {
-            //setMenu("shop");
-    //    }
-    //}, [location]);
-
     const logout = async () => {
         const logoutUrl = `${process.env.REACT_APP_API_LINK}/logout`;
         let responseData;

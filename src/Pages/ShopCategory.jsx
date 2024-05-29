@@ -6,10 +6,19 @@ import Item from '../Components/item/Item'
 
 const ShopCategory = (props) => {
     const{all_product} = useContext(ShopContext)
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+
     return(
         <div className="shop-category">
             {/*<img className="shopcategory-banner" src={props.banner} alt=""/> */}
-            <h1>{props.category} models</h1>
+            <h1>
+    {props.category === "accessories" 
+      ? capitalizeFirstLetter(props.category) 
+      : `${capitalizeFirstLetter(props.category)} Models`}
+  </h1>
+
             <div className="shopcategory-indexSort">
                 
                 

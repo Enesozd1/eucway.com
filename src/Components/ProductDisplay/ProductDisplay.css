@@ -1,6 +1,7 @@
 .productdisplay{
     display: flex;
     margin: 0px 10px;
+    
 }
 
 .productdisplay-left{
@@ -17,6 +18,13 @@
     height: 163px;
     border-radius: 15px; /* Rounds the corners of the image */
     box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
+
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+.productdisplay-img-list img:hover {
+    transform: scale(1.05); /* Expand the image size on hover */
+    /* You can adjust the scale factor (1.1) to your preference */
 }
 .productdisplay-main-img{
     width: 586px;

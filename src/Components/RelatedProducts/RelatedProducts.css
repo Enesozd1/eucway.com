@@ -6,6 +6,10 @@
     height: 90vh;
 
 }
+.relatedproduts-item img{
+    border-radius: 15px; /* Rounds the corners of the image */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow for depth */
+}
 .relatedproducts h1{
     color: #171717;
     font-size: 50px;
