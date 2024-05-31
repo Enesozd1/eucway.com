@@ -5,6 +5,8 @@ import { ShopContext } from "../Context/ShopContext";
 import Item from '../Components/item/Item'
 
 const ShopCategory = (props) => {
+    
+
     const{all_product} = useContext(ShopContext)
     function capitalizeFirstLetter(string) {
         return string.charAt(0).toUpperCase() + string.slice(1);

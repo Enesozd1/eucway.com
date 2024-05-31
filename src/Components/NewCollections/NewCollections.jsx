@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import './NewCollections.css'
-//import new_collection from '../Assets/new_collections'
 import Item from "../item/Item";
 
 
@@ -23,8 +22,7 @@ const NewCollections = () => {
 
     
       
-    
-    
+
     return(
         
         <div>
@@ -35,7 +33,6 @@ const NewCollections = () => {
               <div className="loader">      
               </div>
             </div>
-            
           :
             <></>
           }
