@@ -221,6 +221,7 @@ const LoginSignup = () => {
                 }
             }
         }  
+        
     }
 }
     return(
@@ -277,9 +278,21 @@ const LoginSignup = () => {
                         </div>
                     )}
 
-                    {hasAgreed ? <p>You have accepted the terms and conditions.</p> : null}
+                    
 
-                <button onClick={()=>{state==="Login"?login():signup()}}>Continue</button>
+                                        <button onClick={() => {
+                    if (state !== "Login") {
+                        if(hasAgreed){
+                            signup();
+                        }
+                        else{
+                            alert("Agree the terms of service")
+                        }
+                        
+                    } else if (state === "Login") {
+                        login();
+                    }
+                    }}>Continue</button>
                 {state==="Sign-Up"? <p className="loginsignup-login">Already have an account? <span onClick={() => {setState("Login")}}>Login</span></p> :
                 <p className="loginsignup-login">Don't have an account?? <span onClick={() => {setState("Sign-Up")}}>Register</span></p>}
             </div>

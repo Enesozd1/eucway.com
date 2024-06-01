@@ -140,6 +140,7 @@ select {
     height: 50px;
 }
 .cartitems-promobox button{
+    margin-top: 1px;
     width: 170px;
     height: 58px;
     font-size: 16px;

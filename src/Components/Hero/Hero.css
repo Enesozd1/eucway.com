@@ -100,9 +100,10 @@
 }
 
 @media(max-width:800px){
+    
     .hero button{
         width: 170px;
-        height:30px;
+        height:40px;
         font-size: 13px;
     }
     .hero p{

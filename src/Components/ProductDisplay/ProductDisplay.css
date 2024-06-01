@@ -88,6 +88,7 @@
     outline: none;
     cursor: pointer;
     border-radius: 10px;
+    margin-top: 10px;
 }
 .custom-order-link {
     font-size: 20px;
@@ -135,7 +136,7 @@
     }
     .productdisplay-right p{
         
-        font-size: 16px;
+        font-size: 18px;
     }
     .productdisplay{
         margin: 0px 60px;
@@ -157,14 +158,12 @@
         margin: 10px 0px;
         font-size: 18px;
     }
-    .productdisplay-right-description{
-        font-size: 13px;
-        
-    }
+    
     .productdisplayright button{
-        width: 150x;
+        width: 130x;
         padding: 15px 0px;
         margin-bottom: 20px;
+        
     }
 }
 
@@ -177,7 +176,7 @@
     }
     .productdisplay-right p{
         
-        font-size: 13px;
+        font-size: 15px;
     }
     .productdisplay{
         margin: 0px 30px;

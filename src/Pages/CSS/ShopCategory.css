@@ -51,6 +51,9 @@
 
 
 @media(max-width:1280px){
+    .shop-category h1{
+        font-size: 2.0rem;
+    }
     .shopcategory-products{
         
         row-gap: 80px;
