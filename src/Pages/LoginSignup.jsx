@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './CSS/LoginSignup.css'
 
+
 function generate(n) {
     var add = 1, max = 12 - add;   
     if ( n > max ) {
@@ -14,6 +15,21 @@ function generate(n) {
 const verificationarray = [];
 
 const LoginSignup = () => {
+    const [isOverlayVisible, setIsOverlayVisible] = useState(false);
+  const [hasAgreed, setHasAgreed] = useState(false);
+
+  const handleOverlayOpen = () => {
+    setIsOverlayVisible(true);
+  };
+
+  const handleAgree = () => {
+    setHasAgreed(true);
+    setIsOverlayVisible(false);
+  };
+
+  const handleCheckboxChange = (event) => {
+    setHasAgreed(event.target.checked);
+  };
     const [elementDeleted, setElementDeleted] = useState(false)
     const [state, setState] = useState("Login");
     const [formData, setFormData] = useState({
@@ -240,10 +256,29 @@ const LoginSignup = () => {
             )}
                 {state==="Sign-Up"? 
                 <div className="loginsignup-agree">
-                    <input type="checkbox" name="" id="" />
-                    <p>I agree to terms of use & privacy policy</p>
+                    <input 
+        type="checkbox" 
+        checked={hasAgreed} 
+        onChange={handleCheckboxChange} 
+      />
+                    <p>I agree to <span className="privacyspan" onClick={handleOverlayOpen}>terms of use & privacy policy</span></p>
                 </div>
                 :<></>}
+
+                {isOverlayVisible && (
+                        <div className="overlay">
+                        {/* Overlay content goes here */}
+                        
+                        <div className="terms-content">
+                        <p>Temporary terms of use and privacy policy text</p>
+                            {/* Terms of Use and Privacy Policy text */}
+                        </div>
+                        <button onClick={handleAgree}>I Agree</button>
+                        </div>
+                    )}
+
+                    {hasAgreed ? <p>You have accepted the terms and conditions.</p> : null}
+
                 <button onClick={()=>{state==="Login"?login():signup()}}>Continue</button>
                 {state==="Sign-Up"? <p className="loginsignup-login">Already have an account? <span onClick={() => {setState("Login")}}>Login</span></p> :
                 <p className="loginsignup-login">Don't have an account?? <span onClick={() => {setState("Sign-Up")}}>Register</span></p>}

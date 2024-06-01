@@ -18,6 +18,10 @@ const ShopMake = (props) => {
         //console.log(selectedModel)
     };
 
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      }
+
     //const models = all_product
     //.filter((product) => product.make === props.make)
     //.map((product) => product.model)
@@ -68,7 +72,7 @@ const ShopMake = (props) => {
 
     return (
         <div className="shop-make">
-            <h1>{props.make} Models</h1>
+            <h1>{capitalizeFirstLetter(props.make)} Models</h1>
             <div className="shopcategory-indexSort">
                 <p>
                     

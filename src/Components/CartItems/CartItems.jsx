@@ -37,11 +37,6 @@ const CartItems = () => {
             //setcountrychosen(true)
         
         
-
-        
-
-        
-    
         let productWithQuantityArray = []; 
         let Totalweight = 0
         
