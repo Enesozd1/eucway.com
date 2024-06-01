@@ -31,7 +31,7 @@ function Verification() {
     //}
     //setElementDeleted(true)
     
-    console.log(LoginSignup.formData)
+    
     if(LoginSignup.verificationarray.includes(formData.verification)){
        
         LoginSignup.setEmailVerified(true)

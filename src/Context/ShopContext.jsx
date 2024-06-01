@@ -44,7 +44,7 @@ const ShopContextProvider = (props) => {
     
    
     const addToCart = (itemId) => {
-        //console.log(itemId)
+        
         //const productMap = new Map(all_product.map(product => [String(product.id), product]));
         setCartItems((prev) => ({...prev,[itemId]:prev[itemId] +1}));
         const addtocartUrl = `${process.env.REACT_APP_API_LINK}/addtocart`;

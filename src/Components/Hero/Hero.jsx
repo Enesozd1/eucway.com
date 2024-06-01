@@ -19,7 +19,7 @@ const Hero = () => {
       
       
 
-     //console.log(useScreenSize())
+     
 
       
     return(

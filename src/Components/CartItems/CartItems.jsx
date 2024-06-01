@@ -15,7 +15,7 @@ const CartItems = () => {
   const handleCountryChange = async (event) => {
     const selectedCountry = event.target.value;
     setCountry(selectedCountry);
-    //console.log(country)
+    
   }
 
     const {getTotalCartAmount,all_product,  cartItems,RemoveFromCart} = useContext(ShopContext);
@@ -46,7 +46,7 @@ const CartItems = () => {
                 all_product.forEach(product => {
                     if (String(product.id) === key) {
                         let productWithQuantity = {...product, quantity: value, currency: currency};
-                        console.log(productWithQuantity)
+                        
                         
                         Totalweight = Totalweight + productWithQuantity.weight * productWithQuantity.quantity
                         
@@ -67,7 +67,7 @@ const CartItems = () => {
                         
                         .then(data => {
                             if(data.url){
-                                //console.log(data.url)
+                                
                                 window.location.href=data.url;
                             }
                         })
@@ -82,10 +82,7 @@ const CartItems = () => {
             
     });
     
-    //console.log("Total weight: "+ Totalweight)
-    //        let weightKey = Totalweight + "kg";
-    //        console.log(country)
-    //        console.log("shipping price: "+ shippingFees[country][Totalweight])
+    
 
     }
     

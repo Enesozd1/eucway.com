@@ -15,7 +15,7 @@ const ShopMake = (props) => {
     const location = useLocation();
     const handleModelChange = (event) => {
         setSelectedModel(event.target.value);
-        //console.log(selectedModel)
+        
     };
 
     function capitalizeFirstLetter(string) {
