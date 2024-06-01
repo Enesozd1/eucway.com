@@ -86,6 +86,7 @@ const ContactUs = () => {
         <div className="contact-us">
     <h1>Contact Us</h1>
     <p className="warning">You can send 1 message per day.</p>
+    <p className='email'>Alternatively, contact: info@eucway.com</p>
     <form onSubmit={handleSubmit}>
         <label>
             Email:
